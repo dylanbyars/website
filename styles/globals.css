@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "grid.css";
+@import "periodicTable.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.link,
+.link:visited {
+  @apply text-yellow-lighter;
+  @apply px-2;
+  @apply py-1;
+  @apply rounded;
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+  transition-property: color background-color;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  @apply bg-yellow-lighter;
+  @apply text-black;
+}
+
+/* Utilities */
+
+.blur {
+  filter: blur(5px);
+}
+
+.trans {
+  transition: all 0.25s;
+}
+
+.trans-slow {
+  transition-duration: 0.5s;
+}
+
+.trans-slower {
+  transition-duration: 0.5s;
+}
+
+.trans-fast {
+  transition-duration: 0.15s;
+}
+
+.trans-faster {
+  transition-duration: 0.075s;
+}

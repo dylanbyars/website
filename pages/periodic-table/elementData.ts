@@ -2737,9 +2737,9 @@ const elementData = [
     yearDiscovered: 2002,
     wiki: "https://en.wikipedia.org/wiki/Oganesson",
   },
-].reduce((acc: { [atomicNumber: number]: Element }, element) => {
+].reduce((acc, element) => {
   acc[element.atomicNumber] = element
   return acc
-}, {})
+}, {} as { [atomicNumber: number]: Element })
 
 export default elementData

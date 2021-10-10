@@ -5,7 +5,8 @@ main.home {
   grid-template-areas:
     'header header'
     'projects projects'
-    'footer nav';
+    '. nav'
+    'footer footer'
 }
 
 .home header {

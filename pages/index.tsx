@@ -1,4 +1,3 @@
-import classnames from "classnames"
 import type { NextPage } from "next"
 import Head from "next/head"
 import { useEffect } from "react"
@@ -36,14 +35,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main
-        className={classnames([
-          "home min-h-screen p-3 font-mono",
-          { "bg-black text-grey-lightest": true },
-        ])}
-      >
-        <header className="relative md:flex md:flex-col md:items-end ">
-          <h1 className="font-thin text-3xl md:text-5xl">Dylan Byars</h1>
+      <main className="home min-h-screen p-3 font-mono bg-black text-grey-lightest">
+        <header className="relative md:flex md:flex-col md:items-end">
+          <h1 className="font-thin text-3xl md:text-5xl mb-2">Dylan Byars</h1>
           <h3 className="font-thin md:text-2xl md:mb-4">software engineer</h3>
         </header>
 

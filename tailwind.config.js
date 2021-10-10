@@ -94,4 +94,5 @@ module.exports = {
       full: "100%",
     },
   },
+  plugins: [require("@tailwindcss/typography")],
 }

@@ -19,7 +19,7 @@ const Projects = () => (
         className="link"
         title={`***TODO*** a write up about the different generations of this app`}
       >
-        <article className="mx-auto my-8 flex flex-col items-center">
+        <article className="mx-auto mt-6 flex flex-col items-center">
           <PeriodicTableImg />
           <p className="p-6">
             A wikipedia-powered periodic table built with React.

@@ -7,6 +7,9 @@ import elementData, {
 } from "../../components/periodic-table/elementData"
 import Modal from "../../components/periodic-table/Modal"
 
+// TODO: a big text input right up top. search name, number, whatever and highlight the matching element(s)
+// TODO: make it accessible. keyboard focus should jump from element to element (in order of atomic number)
+
 const PeriodicTable = () => {
   const [activeElement, setActiveElement] = useState<ElementData>()
 

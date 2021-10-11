@@ -14,20 +14,22 @@ js/ts  React  node  AWS  serverless  PostgreSQL  git  zsh/bash  linux
 
 **Senior Software Engineer** → Capital One (11/2019 - now)
 
-- foo bar baz
+- Served as Tech Lead of a project focused on collecting complex user data associated with Social Security benefits.
+- Implemented an encryption key rotation service with AWS Lambda and AWS Systems Manager.
+- Authored technical documentation and scripts to make daily work easier for all engineers on the team and improve the new developer onboarding experience.
 
 ---
 
 **Software Engineer** → Learning Objects (08/2017 - 11/2019)
 
-- Collaborated with a team of engineers to develop a web application used to author education content and deliver that content to students via an online learning environment.
+- Developed a web application used to compose and deliver educational content to students via an online learning environment.
 - Wrote and maintained reliable automation tests allowing us to continuously push new features to users with less worry that we'd accidentally broken something.
 
 ---
 
 **Javascript Developer** → MicroHealth LLC (03/2017 - 08/2017)
 
-- Supported an application used by Department of Defense and Veterans Affairs officials to coordinated medical care for wounded soldiers.
+- Supported an application used by Department of Defense and Veterans Affairs officials to coordinate medical care for wounded soldiers.
 - Created engaging, interactive features and redesigned existing UIs to improve the overall user experience and increase user productivity.
 
 ---
@@ -70,7 +72,8 @@ js/ts  React  node  AWS  serverless  PostgreSQL  git  zsh/bash  linux
 
 **EMT** → Harrisonburg Rescue Squad (02/2010 - 03/2011)
 
-TODO: fillitin
+- Rendered care to patients in distress as a crew member on the ambulance.
+- Delivered informative and concise reports on patient conditions and treatments extended when handing patients off to hospital staff.
 
 ## Education
 

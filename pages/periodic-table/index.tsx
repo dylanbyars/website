@@ -1,5 +1,6 @@
 import classnames from "classnames"
 import React, { useState } from "react"
+import PageContainer from "../PageContainer"
 import ElementBlock from "./ElementBlock"
 import elementData from "./elementData"
 import Modal from "./Modal"
@@ -39,77 +40,79 @@ const PeriodicTable = () => {
   const actinides = createRange(89, 103).map(getElement)
 
   return (
-    <div
-      className="relative min-h-screen flex flex-col justify-around items-center"
-      onKeyUp={(e) => e.key === "Escape" && clearActiveElement()}
-      tabIndex={0}
-    >
-      <h1 className="text-lg md:text-4xl">Periodic Table of the Elements</h1>
+    <PageContainer title="Periodic Table of the Elements · Dylan Byars">
       <div
-        className={classnames(["flex", "flex-col", { blur: activeElement }])}
+        className="relative min-h-screen flex flex-col justify-around items-center"
+        onKeyUp={(e) => e.key === "Escape" && clearActiveElement()}
+        tabIndex={0}
       >
-        <div className="flex pb-6">
-          {groups.map((elements, i) =>
-            i !== 2 ? (
-              <div
-                key={elements[0].atomicMass}
-                className="flex flex-col justify-end"
-              >
-                {elements.map((element) => (
-                  <ElementBlock
-                    key={element.name}
-                    element={element}
-                    setActiveElement={setActiveElement}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div
-                key={elements[0].atomicMass}
-                className="flex flex-col justify-end"
-              >
-                {elements.map((element) => (
-                  <ElementBlock
-                    key={element.name}
-                    element={element}
-                    setActiveElement={setActiveElement}
-                  />
-                ))}
-                <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-indigo-lightest">
-                  <small>57-71</small>
+        <h1 className="text-lg md:text-4xl">Periodic Table of the Elements</h1>
+        <div
+          className={classnames(["flex", "flex-col", { blur: activeElement }])}
+        >
+          <div className="flex pb-6">
+            {groups.map((elements, i) =>
+              i !== 2 ? (
+                <div
+                  key={elements[0].atomicMass}
+                  className="flex flex-col justify-end"
+                >
+                  {elements.map((element) => (
+                    <ElementBlock
+                      key={element.name}
+                      element={element}
+                      setActiveElement={setActiveElement}
+                    />
+                  ))}
                 </div>
-                <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-green-lightest">
-                  <small>89-103</small>
+              ) : (
+                <div
+                  key={elements[0].atomicMass}
+                  className="flex flex-col justify-end"
+                >
+                  {elements.map((element) => (
+                    <ElementBlock
+                      key={element.name}
+                      element={element}
+                      setActiveElement={setActiveElement}
+                    />
+                  ))}
+                  <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-indigo-lightest">
+                    <small>57-71</small>
+                  </div>
+                  <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-green-lightest">
+                    <small>89-103</small>
+                  </div>
                 </div>
-              </div>
-            )
-          )}
-        </div>
-        <div className="flex flex-col">
-          <div className="flex justify-end">
-            {lanthanides.map((element) => (
-              <ElementBlock
-                key={element.name}
-                element={element}
-                setActiveElement={setActiveElement}
-              />
-            ))}
+              )
+            )}
           </div>
-          <div className="flex justify-end">
-            {actinides.map((element) => (
-              <ElementBlock
-                key={element.name}
-                element={element}
-                setActiveElement={setActiveElement}
-              />
-            ))}
+          <div className="flex flex-col">
+            <div className="flex justify-end">
+              {lanthanides.map((element) => (
+                <ElementBlock
+                  key={element.name}
+                  element={element}
+                  setActiveElement={setActiveElement}
+                />
+              ))}
+            </div>
+            <div className="flex justify-end">
+              {actinides.map((element) => (
+                <ElementBlock
+                  key={element.name}
+                  element={element}
+                  setActiveElement={setActiveElement}
+                />
+              ))}
+            </div>
           </div>
         </div>
+        {activeElement && (
+          <Modal element={activeElement} closeModal={clearActiveElement} />
+        )}
       </div>
-      {activeElement && (
-        <Modal element={activeElement} closeModal={clearActiveElement} />
-      )}
-    </div>
+    </PageContainer>
   )
 }
 

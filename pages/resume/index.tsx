@@ -4,12 +4,15 @@ import { join } from "path"
 import React from "react"
 import { remark } from "remark"
 import html from "remark-html"
+import PageContainer from "../PageContainer"
 
 const Resume: NextPage<{ content: string }> = ({ content }) => (
-  <article
-    className="prose font-mono font-medium mx-auto mt-8 mb-4"
-    dangerouslySetInnerHTML={{ __html: content }}
-  />
+  <PageContainer title="Resume · Dylan Byars">
+    <article
+      className="prose lg:prose-lg font-mono mx-auto mt-8 mb-4 px-4 md:px-0"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+  </PageContainer>
 )
 
 export async function getStaticProps() {

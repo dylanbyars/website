@@ -9,18 +9,18 @@ import { ElementData } from "./elementData"
 import ElementDetail from "./ElementDetail"
 
 const groupBlockStyles: any = {
-  nonmetal: "yellow-lightest",
-  "noble gas": "blue-lighter",
-  "alkali metal": "grey-light",
-  "alkaline earth metal": "red-lighter",
-  metalloid: "orange-lighter",
-  halogen: "blue-lightest",
-  metal: "pink-lighter",
-  "transition metal": "teal-lightest",
-  lanthanoid: "indigo-lightest",
-  actinoid: "green-lightest",
-  "probably metal": "grey-lightest",
-  "probably noble gas": "grey-lighter",
+  nonmetal: "bg-yellow-lightest",
+  "noble gas": "bg-blue-lighter",
+  "alkali metal": "bg-grey-light",
+  "alkaline earth metal": "bg-red-lighter",
+  metalloid: "bg-orange-lighter",
+  halogen: "bg-blue-lightest",
+  metal: "bg-pink-lighter",
+  "transition metal": "bg-teal-lightest",
+  lanthanoid: "bg-indigo-lightest",
+  actinoid: "bg-green-lightest",
+  "probably metal": "bg-grey-lightest",
+  "probably noble gas": "bg-grey-lighter",
 }
 
 const ElementBlock: FunctionComponent<{
@@ -69,7 +69,7 @@ const ElementBlock: FunctionComponent<{
       <div
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseLeave}
-        className={`bg-${
+        className={`${
           groupBlockStyles[element.groupBlock]
         } relative flex justify-center items-end border border-grey-dark rounded-sm w-12 h-12 m-1 cursor-pointer`}
       >

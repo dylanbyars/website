@@ -28,5 +28,5 @@ const Home: NextPage = () => {
 export default Home
 
 function showSecretMessage() {
-  console.log(`TODO`)
+  console.log("made ya look 😁")
 }

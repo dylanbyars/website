@@ -1,22 +1,25 @@
 import Link from "next/link"
 import React, { FunctionComponent } from "react"
 
+// TODO: How guaranteed is the order of the array returned by `Object.entries`? Does the size of the object affect the uncertainty?
+const EXTERNAL_LINKS: { [title: string]: string } = {
+  github: "https://github.com/dylanbyars/",
+  linkedin: "https://linkedin.com/in/dylanbyars/",
+  codepen: "https://codepen.io/dylanbyars/",
+}
+
 const linkClassName = "link text-4xl mt-1 md:text-3xl"
 
-const NavLink: FunctionComponent<{ href: string }> = ({ href, children }) => (
-  <a className={linkClassName} href={href}>
-    {children}
-  </a>
-)
-
-const Nav = () => (
+const Nav: FunctionComponent = () => (
   <nav className="flex flex-col items-end justify-end">
     <Link href="/resume">
-      <a className={linkClassName}>resume</a>
+      <a className={linkClassName} title="***TODO***">resume</a>
     </Link>
-    <NavLink href="https://codepen.io/dylanbyars/">codepen</NavLink>
-    <NavLink href="https://github.com/dylanbyars/">github</NavLink>
-    <NavLink href="https://linkedin.com/in/dylanbyars/">linkedin</NavLink>
+    {Object.entries(EXTERNAL_LINKS).map(([title, href]) => (
+      <a title={title} href={href} className={linkClassName} key={title}>
+        {title}
+      </a>
+    ))}
   </nav>
 )
 

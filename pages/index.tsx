@@ -1,7 +1,7 @@
 import type { NextPage } from "next"
 import { useEffect } from "react"
-import Nav from "../components/Nav"
-import Projects from "../components/Projects"
+import Nav from "./home/Nav"
+import Projects from "./home/Projects"
 import PageContainer from "./PageContainer"
 
 const Home: NextPage = () => {

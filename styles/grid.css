@@ -6,15 +6,10 @@ main.home {
     'header header'
     'projects projects'
     '. nav'
-    'footer footer'
 }
 
 .home header {
   grid-area: header;
-}
-
-.theme-toggle {
-  grid-area: theme;
 }
 
 .home nav {
@@ -23,10 +18,6 @@ main.home {
 
 .home .projects {
   grid-area: projects;
-}
-
-.home footer {
-  grid-area: footer;
 }
 
 /* media queries for other grid setups */
@@ -38,6 +29,6 @@ main.home {
     grid-auto-rows: auto;
     grid-template-areas:
       'projects header'
-      'footer nav';
+      '. nav';
   }
 }

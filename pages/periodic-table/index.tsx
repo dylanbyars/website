@@ -7,8 +7,6 @@ import elementData, {
 } from "../../components/periodic-table/elementData"
 import Modal from "../../components/periodic-table/Modal"
 
-// TODO: cache calls to wikipedia
-
 const PeriodicTable = () => {
   const [activeElement, setActiveElement] = useState<ElementData>()
 
@@ -51,65 +49,46 @@ const PeriodicTable = () => {
         tabIndex={0}
       >
         <h1 className="text-lg md:text-4xl">Periodic Table of the Elements</h1>
-        <div
-          className={classnames(["flex", "flex-col", { blur: activeElement }])}
-        >
+        <div className={classnames(["flex flex-col", { blur: activeElement }])}>
           <div className="flex pb-6">
-            {groups.map((elements, i) =>
-              i !== 2 ? (
-                <div
-                  key={elements[0].atomicMass}
-                  className="flex flex-col justify-end"
-                >
-                  {elements.map((element) => (
-                    <ElementBlock
-                      key={element.name}
-                      element={element}
-                      setActiveElement={setActiveElement}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div
-                  key={elements[0].atomicMass}
-                  className="flex flex-col justify-end"
-                >
-                  {elements.map((element) => (
-                    <ElementBlock
-                      key={element.name}
-                      element={element}
-                      setActiveElement={setActiveElement}
-                    />
-                  ))}
-                  <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-indigo-lightest">
-                    <small>57-71</small>
-                  </div>
-                  <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-green-lightest">
-                    <small>89-103</small>
-                  </div>
-                </div>
-              )
-            )}
+            {groups.map((elements, i) => (
+              <div
+                key={elements[0].atomicMass}
+                className="flex flex-col justify-end"
+              >
+                {elements.map((element) => (
+                  <ElementBlock
+                    key={element.name}
+                    element={element}
+                    setActiveElement={setActiveElement}
+                  />
+                ))}
+                {i === 2 && (
+                  // group 3 has 2 placeholder elements that point to the lanthanides and actinides
+                  <>
+                    <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-indigo-lightest">
+                      <small>57-71</small>
+                    </div>
+                    <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-green-lightest">
+                      <small>89-103</small>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
           </div>
           <div className="flex flex-col">
-            <div className="flex justify-end">
-              {lanthanides.map((element) => (
-                <ElementBlock
-                  key={element.name}
-                  element={element}
-                  setActiveElement={setActiveElement}
-                />
-              ))}
-            </div>
-            <div className="flex justify-end">
-              {actinides.map((element) => (
-                <ElementBlock
-                  key={element.name}
-                  element={element}
-                  setActiveElement={setActiveElement}
-                />
-              ))}
-            </div>
+            {[lanthanides, actinides].map((group) => (
+              <div className="flex justify-end" key={group[0].groupBlock}>
+                {group.map((element) => (
+                  <ElementBlock
+                    key={element.name}
+                    element={element}
+                    setActiveElement={setActiveElement}
+                  />
+                ))}
+              </div>
+            ))}
           </div>
         </div>
         {activeElement && (

@@ -1,20 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react"
 
-import A from '../../components/A'
+const A = ({ href, classes, children }) => (
+  <a
+    href={href}
+    className={classnames([
+      "text-indigo-dark",
+      "hover:text-indigo-darkest",
+      "trans",
+      "trans-fast",
+      ...classes,
+    ])}
+  >
+    {children}
+  </a>
+)
 
 const Modal = ({ element, closeModal }) => {
   const groupWikis = {
-    nonmetal: 'https://en.wikipedia.org/wiki/Nonmetal',
-    'noble gas': 'https://en.wikipedia.org/wiki/Noble_gas',
-    'alkali metal': 'https://en.wikipedia.org/wiki/Alkali_metal',
-    'alkaline earth metal':
-      'https://en.wikipedia.org/wiki/Alkaline_earth_metal',
-    metalloid: 'https://en.wikipedia.org/wiki/Metalloid',
-    halogen: 'https://en.wikipedia.org/wiki/Halogen',
-    metal: 'https://en.wikipedia.org/wiki/Post-transition_metal',
-    'transition metal': 'https://en.wikipedia.org/wiki/Transition_metal',
-    lanthanoid: 'https://en.wikipedia.org/wiki/Lanthanide',
-    actinoid: 'https://en.wikipedia.org/wiki/Actinide',
+    nonmetal: "https://en.wikipedia.org/wiki/Nonmetal",
+    "noble gas": "https://en.wikipedia.org/wiki/Noble_gas",
+    "alkali metal": "https://en.wikipedia.org/wiki/Alkali_metal",
+    "alkaline earth metal":
+      "https://en.wikipedia.org/wiki/Alkaline_earth_metal",
+    metalloid: "https://en.wikipedia.org/wiki/Metalloid",
+    halogen: "https://en.wikipedia.org/wiki/Halogen",
+    metal: "https://en.wikipedia.org/wiki/Post-transition_metal",
+    "transition metal": "https://en.wikipedia.org/wiki/Transition_metal",
+    lanthanoid: "https://en.wikipedia.org/wiki/Lanthanide",
+    actinoid: "https://en.wikipedia.org/wiki/Actinide",
   }
 
   const {
@@ -43,8 +56,8 @@ const Modal = ({ element, closeModal }) => {
     return `http://periodicvideos.com/videos/${formattedNumber()}.htm`
   })()
 
-  const [wikiSummary, setWikiSummary] = useState('')
-  const [wikiImage, setWikiImage] = useState('')
+  const [wikiSummary, setWikiSummary] = useState("")
+  const [wikiImage, setWikiImage] = useState("")
 
   useEffect(() => {
     // pull the last bit of the wiki url off
@@ -56,7 +69,7 @@ const Modal = ({ element, closeModal }) => {
 
     fetch(wikiData).then(({ data }) => {
       setWikiSummary(data.extract)
-      setWikiImage(data.thumbnail ? data.thumbnail.source : '')
+      setWikiImage(data.thumbnail ? data.thumbnail.source : "")
     })
   }, [wiki])
 
@@ -68,7 +81,7 @@ const Modal = ({ element, closeModal }) => {
       {wikiSummary && (
         <div
           className="flex justify-between relative w-3/4 border bg-white shadow-lg p-5 max-h-3/4 overflow-auto"
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           <button
             className="absolute top-0 right-0 mr-4 mt-4 px-2 py-1 rounded-full trans trans-fast border border-indigo-light hover:border-indigo-dark text-indigo-light hover:text-indigo-dark hover text-sm"
@@ -83,7 +96,7 @@ const Modal = ({ element, closeModal }) => {
               <div className="flex my-1">
                 <p className="mr-1 font-semibold">Group:</p>
                 {groupWikis[groupBlock] ? (
-                  <A classes={['capitalize']} href={groupWikis[groupBlock]}>
+                  <A classes={["capitalize"]} href={groupWikis[groupBlock]}>
                     {groupBlock}
                   </A>
                 ) : (
@@ -93,7 +106,7 @@ const Modal = ({ element, closeModal }) => {
               <div className="flex my-1">
                 <p className="mr-1 font-semibold">Standard State:</p>
                 <p className="capitalize">
-                  {standardState ? standardState : '???'}
+                  {standardState ? standardState : "???"}
                 </p>
               </div>
               <div className="flex my-1">
@@ -101,7 +114,7 @@ const Modal = ({ element, closeModal }) => {
                 <p>
                   {atomicMass}
                   <A
-                    classes={['ml-1', 'font-semibold']}
+                    classes={["ml-1", "font-semibold"]}
                     href="https://en.wikipedia.org/wiki/Standard_atomic_weight"
                   >
                     A<sub>r</sub>
@@ -111,10 +124,10 @@ const Modal = ({ element, closeModal }) => {
               <div className="flex my-1">
                 <p className="mr-1 font-semibold">Melting Point:</p>
                 <p>
-                  {meltingPoint ? meltingPoint : '???'}
+                  {meltingPoint ? meltingPoint : "???"}
                   {meltingPoint && (
                     <A
-                      classes={['ml-1']}
+                      classes={["ml-1"]}
                       href="https://en.wikipedia.org/wiki/Kelvin"
                     >
                       K
@@ -125,10 +138,10 @@ const Modal = ({ element, closeModal }) => {
               <div className="flex my-1">
                 <p className="mr-1 font-semibold">Boiling Point:</p>
                 <p>
-                  {boilingPoint ? boilingPoint : '???'}
+                  {boilingPoint ? boilingPoint : "???"}
                   {boilingPoint && (
                     <A
-                      classes={['ml-1']}
+                      classes={["ml-1"]}
                       href="https://en.wikipedia.org/wiki/Kelvin"
                     >
                       K
@@ -138,12 +151,12 @@ const Modal = ({ element, closeModal }) => {
               </div>
               <div className="flex my-1">
                 <A
-                  classes={['mr-1', 'font-semibold']}
+                  classes={["mr-1", "font-semibold"]}
                   href="https://en.wikipedia.org/wiki/Electron_configuration"
                 >
                   Electron Configuration:
                 </A>
-                <p>{electronicConfiguration.replace(/\./g, ' ')}</p>
+                <p>{electronicConfiguration.replace(/\./g, " ")}</p>
               </div>
               <div className="flex my-1">
                 <p className="mr-1 font-semibold">Year Discovered:</p>
@@ -157,10 +170,10 @@ const Modal = ({ element, closeModal }) => {
           </p>
 
           <div className="absolute bottom-0 right-0 mr-4 mb-4">
-            <A classes={['text-sm']} href={wiki}>
+            <A classes={["text-sm"]} href={wiki}>
               Wikipedia
             </A>
-            <A classes={['ml-4', 'text-sm']} href={periodicVideoLink}>
+            <A classes={["ml-4", "text-sm"]} href={periodicVideoLink}>
               Video
             </A>
           </div>

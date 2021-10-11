@@ -37,7 +37,7 @@ js/ts  React  node  AWS  serverless  PostgreSQL  git  zsh/bash  linux
 **Data Collection Engineer** → Leidos (10/2014 - 02/2015)
 
 - Designed, constructed, and maintained web crawlers for a project called Digital Echo.
-- Implemented new techniques to improve the reusability of the code our team used throughout the project.
+- Pioneered new techniques to improve the reusability of the code our team used throughout the project.
 
 ---
 

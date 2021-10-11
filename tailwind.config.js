@@ -1,6 +1,26 @@
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            hr: {
+              marginTop: 0,
+              marginBottom: "1.5em",
+            },
+          },
+        },
+        lg: {
+          css: {
+            hr: {
+              marginTop: 0,
+              marginBottom: "1.5em",
+            },
+          },
+        },
+      },
+    },
     colors: {
       transparent: "transparent",
 

@@ -9,7 +9,7 @@ import PageContainer from "../../components/PageContainer"
 const Resume: NextPage<{ content: string }> = ({ content }) => (
   <PageContainer title="Resume · Dylan Byars">
     <article
-      className="prose lg:prose-lg font-mono mx-auto mt-8 mb-4 px-4 md:px-0"
+      className="prose lg:prose-lg lg:max-w-3xl font-mono mx-auto mt-6 mb-10 px-4 md:px-0 md:mt-8"
       dangerouslySetInnerHTML={{ __html: content }}
     />
   </PageContainer>

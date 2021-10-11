@@ -1,6 +1,6 @@
-type Element = {
+export type ElementData = {
   atomicMass: string | number
-  atomicNumber: string | number
+  atomicNumber: number
   atomicRadius: string | number
   boilingPoint: string | number
   bondingType: string | number
@@ -9,20 +9,20 @@ type Element = {
   electronAffinity: string | number
   electronegativity: string | number
   electronicConfiguration: string | number
-  groupBlock: string | number
+  groupBlock: string
   ionRadius: string | number
   ionizationEnergy: string | number
   meltingPoint: string | number
-  name: string | number
+  name: string
   oxidationStates: string | number
-  standardState: string | number
-  symbol: string | number
+  standardState: "gas" | "solid" | "liquid" | ""
+  symbol: string
   vanDelWaalsRadius: string | number
-  wiki: string | number
+  wiki: string
   yearDiscovered: string | number
 }
 
-const elementData = [
+const elementData: ElementData[] = [
   {
     atomicNumber: 1,
     symbol: "H",
@@ -2737,9 +2737,9 @@ const elementData = [
     yearDiscovered: 2002,
     wiki: "https://en.wikipedia.org/wiki/Oganesson",
   },
-].reduce((acc, element) => {
+]
+
+export default elementData.reduce((acc, element) => {
   acc[element.atomicNumber] = element
   return acc
-}, {} as { [atomicNumber: number]: Element })
-
-export default elementData
+}, {} as { [atomicNumber: number]: ElementData })

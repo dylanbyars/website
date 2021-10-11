@@ -2,11 +2,11 @@ import classnames from "classnames"
 import React, { useState } from "react"
 import PageContainer from "../PageContainer"
 import ElementBlock from "./ElementBlock"
-import elementData from "./elementData"
+import elementData, { ElementData } from "./elementData"
 import Modal from "./Modal"
 
 const PeriodicTable = () => {
-  const [activeElement, setActiveElement] = useState<Element>()
+  const [activeElement, setActiveElement] = useState<ElementData>()
 
   const clearActiveElement = () => setActiveElement(undefined)
 

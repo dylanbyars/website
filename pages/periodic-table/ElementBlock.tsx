@@ -1,44 +1,54 @@
-import React, { useState, useRef } from 'react'
-import ElementDetail from './ElementDetail'
+import React, {
+  useState,
+  useRef,
+  FunctionComponent,
+  Dispatch,
+  SetStateAction,
+} from "react"
+import { ElementData } from "./elementData"
+import ElementDetail from "./ElementDetail"
 
-const groupBlockStyles = {
-  nonmetal: 'yellow-lightest',
-  'noble gas': 'blue-lighter',
-  'alkali metal': 'grey-light',
-  'alkaline earth metal': 'red-lighter',
-  metalloid: 'orange-lighter',
-  halogen: 'blue-lightest',
-  metal: 'pink-lighter',
-  'transition metal': 'teal-lightest',
-  lanthanoid: 'indigo-lightest',
-  actinoid: 'green-lightest',
-  'probably metal': 'grey-lightest',
-  'probably noble gas': 'grey-lighter',
+const groupBlockStyles: any = {
+  nonmetal: "yellow-lightest",
+  "noble gas": "blue-lighter",
+  "alkali metal": "grey-light",
+  "alkaline earth metal": "red-lighter",
+  metalloid: "orange-lighter",
+  halogen: "blue-lightest",
+  metal: "pink-lighter",
+  "transition metal": "teal-lightest",
+  lanthanoid: "indigo-lightest",
+  actinoid: "green-lightest",
+  "probably metal": "grey-lightest",
+  "probably noble gas": "grey-lighter",
 }
 
-const ElementBlock = ({ element, setActiveElement }) => {
+const ElementBlock: FunctionComponent<{
+  element: ElementData
+  setActiveElement: Dispatch<SetStateAction<ElementData | undefined>> // TODO: it feels weird to be this explicit
+}> = ({ element, setActiveElement }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [offsetX, setOffsetX] = useState({})
   const [offsetY, setOffsetY] = useState({})
 
-  const elementRef = useRef(null)
+  const elementRef = useRef(null) as any // TODO this is lazy
 
   const handleMouseOver = () => {
     setIsHovered(true)
 
-    const elementPosition = elementRef.current.getBoundingClientRect()
+    const elementPosition = elementRef.current!.getBoundingClientRect()
     const viewportWidth = window.innerWidth
     const viewportHeight = window.innerHeight
 
     const offsetX =
       elementPosition.x > viewportWidth / 2
-        ? { left: '-8rem' }
-        : { right: '-8rem' }
+        ? { left: "-8rem" }
+        : { right: "-8rem" }
 
     const offsetY =
       elementPosition.y > viewportHeight / 2
-        ? { top: '-8rem' }
-        : { bottom: '-8rem' }
+        ? { top: "-8rem" }
+        : { bottom: "-8rem" }
 
     setOffsetX(offsetX)
     setOffsetY(offsetY)

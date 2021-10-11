@@ -6,37 +6,40 @@ Software engineer with experience in the finance, education, and healthcare sect
 
 ## Skills
 
-js/ts · React · HTML · CSS/SCSS · git · node · serverless · AWS · linux · zsh/bash
+```
+js/ts  React  node  AWS  serverless  PostgreSQL  git  zsh/bash  linux
+```
 
 ## Work
 
-Senior Software Engineer → Capital One [Nov 2019 - Present]
-Senior Software Engineer → Capital One | Nov 2019 - Present
+Senior Software Engineer → Capital One (11/2019 - now)
 
 - Worked with
 
 ---
 
-Software Engineer → Learning Objects · Aug 2017 - Nov 2019
+Software Engineer → Learning Objects (08/2017 - 11/2019)
 
 - Collaborated with a team of engineers to develop a web application used to author education content and deliver that content to students via an online learning environment.
 - Wrote and maintained reliable automation tests allowing us to continuously push new features to users with less worry that we'd accidentally broken something.
 
 ---
 
-MicroHealth LLC → Javascript Developer (Mar 2017 - Aug 2017)
+MicroHealth LLC → Javascript Developer (03/2017 - 08/2017)
 
 - Supported an application used by Department of Defense and Veterans Affairs officials to coordinated medical care for wounded soldiers.
 - Created engaging, interactive features and redesigned existing UIs to improve the overall user experience and increase user productivity.
 
 ---
 
-Leidos → Data Collection Engineer (Oct 2014 - Feb 2015)
+Leidos → Data Collection Engineer (10/2014 - 02/2015)
 
 - Designed, constructed, and maintained web crawlers for a project called Digital Echo.
 - Implemented new techniques to improve the reusability of the code our team used throughout the project.
 
 ---
+
+TODOOFODOSOSDOSOSO fix the rest of the dates
 
 Carahsoft Technology → Account Manager (July 2015 - Mar 2017)
 

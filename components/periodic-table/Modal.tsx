@@ -89,6 +89,7 @@ const Modal: FunctionComponent<{ element: ElementData; closeModal: Function }> =
             </button>
             <div className="w-1/2 flex flex-col justify-around items-center">
               <h1 className="text-3xl">{name}</h1>
+              {/* TODO: fix a size on the img so the modal doesn't move too much */}
               {wikiImage && <img src={wikiImage} alt={name} className="my-3" />}
               <div className="flex flex-col justify-between ">
                 <div className="flex my-1">

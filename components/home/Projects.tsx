@@ -15,7 +15,10 @@ const PeriodicTableImg = () => (
 const Projects = () => (
   <section className="projects flex flex-col justify-around items-center">
     <Link href="/periodic-table">
-      <a className="link">
+      <a
+        className="link"
+        title={`***TODO*** a write up about the different generations of this app`}
+      >
         <article className="mx-auto my-8 flex flex-col items-center">
           <PeriodicTableImg />
           <p className="p-6">

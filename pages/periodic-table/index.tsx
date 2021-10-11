@@ -1,9 +1,13 @@
 import classnames from "classnames"
 import React, { useState } from "react"
-import PageContainer from "../PageContainer"
-import ElementBlock from "./ElementBlock"
-import elementData, { ElementData } from "./elementData"
-import Modal from "./Modal"
+import PageContainer from "../../components/PageContainer"
+import ElementBlock from "../../components/periodic-table/ElementBlock"
+import elementData, {
+  ElementData,
+} from "../../components/periodic-table/elementData"
+import Modal from "../../components/periodic-table/Modal"
+
+// TODO: cache calls to wikipedia
 
 const PeriodicTable = () => {
   const [activeElement, setActiveElement] = useState<ElementData>()

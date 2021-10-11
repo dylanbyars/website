@@ -4,7 +4,7 @@ import { join } from "path"
 import React from "react"
 import { remark } from "remark"
 import html from "remark-html"
-import PageContainer from "../PageContainer"
+import PageContainer from "../../components/PageContainer"
 
 const Resume: NextPage<{ content: string }> = ({ content }) => (
   <PageContainer title="Resume · Dylan Byars">
@@ -19,7 +19,10 @@ export async function getStaticProps() {
   const content = await remark()
     .use(html)
     .process(
-      fs.readFileSync(join(process.cwd(), "pages/resume/resume.md"), "utf8")
+      fs.readFileSync(
+        join(process.cwd(), "components/resume/RESUME.md"),
+        "utf8"
+      )
     )
 
   return { props: { content: content.toString() } }

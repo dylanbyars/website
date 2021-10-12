@@ -1,11 +1,9 @@
 import classnames from "classnames"
 import React, { useState } from "react"
 import PageContainer from "../../components/PageContainer"
-import ElementBlock from "../../components/periodic-table/ElementBlock"
-import elementData, {
-  ElementData,
-} from "../../components/periodic-table/elementData"
-import Modal from "../../components/periodic-table/Modal"
+import ElementBlock from "./ElementBlock"
+import elementData, { ElementData } from "./elementData"
+import Modal from "./Modal"
 
 // TODO: a big text input right up top. search name, number, whatever and highlight the matching element(s)
 // TODO: make it accessible. keyboard focus should jump from element to element (in order of atomic number)

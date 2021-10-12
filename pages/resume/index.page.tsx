@@ -20,7 +20,7 @@ export async function getStaticProps() {
     .use(html)
     .process(
       fs.readFileSync(
-        join(process.cwd(), "components/resume/Dylan_Byars_Resume.md"),
+        join(process.cwd(), "pages/resume/Dylan_Byars_Resume.md"),
         "utf8"
       )
     )

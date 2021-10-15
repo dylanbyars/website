@@ -18,12 +18,15 @@ const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
   return (
     <PageContainer title="Resume · Dylan Byars">
       {!isPrinting && (
-        <button
-          className="float-right mr-8"
-          onClick={() => setShowRaw(!showRaw)}
-        >
-          {showRaw ? "pretty" : "raw"}
-        </button>
+        <label>
+          view as markdown
+          <input
+            type="checkbox"
+            name="showRaw"
+            checked={showRaw}
+            onChange={(e) => setShowRaw(e.target.checked)}
+          />
+        </label>
       )}
       {showRaw ? (
         <article className={classNames({ "m-3": !isPrinting })}>

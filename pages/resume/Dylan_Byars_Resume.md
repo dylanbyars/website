@@ -2,19 +2,17 @@
 
 [website](https://dylanbyars.com) · [GitHub](https://github.com/dylanbyars) · [LinkedIn](https://www.linkedin.com/in/dylanbyars/) · [email](mailto:dylan@dylanbyars.com)
 
-Software engineer with experience in the finance, education, and healthcare sectors.
-
-## Skills
-
-```
-js/ts  React  node  AWS  serverless  PostgreSQL  git  zsh/bash  linux
-```
+Full stack software engineer with experience in the finance, education, and healthcare sectors.
 
 ## Work
 
 **Senior Software Engineer** → Capital One (11/2019 - now)
 
-- Served as Tech Lead of a project focused on collecting complex user data associated with Social Security benefits.
+```
+React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git
+```
+
+- Served as Tech Lead of a project focused on collecting complex user data associated with Social Security benefits using a custom built form library.
 - Implemented an encryption key rotation service with AWS Lambda and AWS Systems Manager.
 - Authored technical documentation and scripts to make daily work easier for all engineers on the team and improve the new developer onboarding experience.
 
@@ -22,12 +20,21 @@ js/ts  React  node  AWS  serverless  PostgreSQL  git  zsh/bash  linux
 
 **Software Engineer** → Learning Objects (08/2017 - 11/2019)
 
+```
+React · TypeScript · Angularjs · Scala · Redux · PostgreSQL · Bootstrap · selenide · git
+```
+
 - Developed a web application used to compose and deliver educational content to students via an online learning environment.
+- Migrated the client side application from Angularjs to React
 - Wrote and maintained reliable automation tests allowing us to continuously push new features to users with less worry that we'd accidentally broken something.
 
 ---
 
-**Javascript Developer** → MicroHealth LLC (03/2017 - 08/2017)
+**JavaScript Developer** → MicroHealth LLC (03/2017 - 08/2017)
+
+```
+JavaScript · HTML · CSS · JSP
+```
 
 - Supported an application used by Department of Defense and Veterans Affairs officials to coordinate medical care for wounded soldiers.
 - Created engaging, interactive features and redesigned existing UIs to improve the overall user experience and increase user productivity.

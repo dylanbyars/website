@@ -33,7 +33,7 @@ const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
         </article>
       ) : (
         <article
-          className="prose md:max-w-3xl font-mono mx-auto px-4"
+          className="prose md:max-w-4xl font-mono mx-auto px-4"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )}

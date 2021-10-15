@@ -2,9 +2,13 @@ import type { NextPage } from "next"
 import Head from "next/head"
 
 // TODO: put github links here somewhere? optionally link to code for current page
-const PageContainer: NextPage<{ title: string }> = ({ children, title }) => {
+const PageContainer: NextPage<{ title: string; className?: string }> = ({
+  children,
+  title,
+  className,
+}) => {
   return (
-    <>
+    <main className={className}>
       <Head>
         <title>{title}</title>
         {/* <meta name="description" content="TODO:" /> */}
@@ -12,7 +16,7 @@ const PageContainer: NextPage<{ title: string }> = ({ children, title }) => {
       </Head>
 
       {children}
-    </>
+    </main>
   )
 }
 

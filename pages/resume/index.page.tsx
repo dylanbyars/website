@@ -18,7 +18,7 @@ const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
   return (
     <PageContainer title="Resume · Dylan Byars" className="py-3 md:py-8">
       {showRaw ? (
-        <article className={classNames({ "m-3": !isPrinting })}>
+        <article>
           {raw.split("\n").map((line, idx) => (
             <div
               key={`${idx}-${line.slice(-3)}`}
@@ -33,7 +33,7 @@ const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
         </article>
       ) : (
         <article
-          className="prose md:max-w-4xl font-mono mx-auto px-4"
+          className="prose font-mono max-w-4xl mx-auto px-4"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )}

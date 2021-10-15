@@ -7,24 +7,6 @@ import { remark } from "remark"
 import markdown2html from "remark-html"
 import PageContainer from "../../components/PageContainer"
 
-const useDetectPrint = () => {
-  const [isPrinting, setIsPrinting] = useState(false)
-
-  const handleBeforeprint = () => setIsPrinting(true)
-  const handleAfterprint = () => setIsPrinting(false)
-
-  useEffect(() => {
-    window.addEventListener("beforeprint", handleBeforeprint)
-    window.addEventListener("afterprint", handleAfterprint)
-    return () => {
-      window.removeEventListener("beforeprint", handleBeforeprint)
-      window.removeEventListener("afterprint", handleAfterprint)
-    }
-  })
-
-  return isPrinting
-}
-
 const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
   const [showRaw, setShowRaw] = useState(false)
   const isPrinting = useDetectPrint()
@@ -45,8 +27,9 @@ const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
       )}
       {showRaw ? (
         <article className={classNames({ "m-3": !isPrinting })}>
-          {raw.split("\n").map((line) => (
+          {raw.split("\n").map((line, idx) => (
             <div
+              key={`${idx}-${line.slice(-3)}`}
               className={classNames({
                 "my-1": line === "",
                 "text-lg": /^#/.test(line),
@@ -78,3 +61,21 @@ export async function getStaticProps() {
 }
 
 export default Resume
+
+function useDetectPrint() {
+  const [isPrinting, setIsPrinting] = useState(false)
+
+  const handleBeforeprint = () => setIsPrinting(true)
+  const handleAfterprint = () => setIsPrinting(false)
+
+  useEffect(() => {
+    window.addEventListener("beforeprint", handleBeforeprint)
+    window.addEventListener("afterprint", handleAfterprint)
+    return () => {
+      window.removeEventListener("beforeprint", handleBeforeprint)
+      window.removeEventListener("afterprint", handleAfterprint)
+    }
+  })
+
+  return isPrinting
+}

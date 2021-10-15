@@ -12,7 +12,7 @@ Full stack software engineer with experience in the finance, education, and heal
 React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git
 ```
 
-- Served as Tech Lead of a project focused on collecting complex user data associated with Social Security benefits using a custom built form library.
+- Served as Tech Lead of a project focused on collecting complex user data related to Social Security benefits using a custom built form library. Responsibilities included: working with product managers to identify technical requirements, transforming those technical and product requirements into actionable tickets, migrating the form library from JavaScript to TypeScript, developing the feature, and working with domain experts to test the feature.
 - Implemented an encryption key rotation service with AWS Lambda and AWS Systems Manager.
 - Authored technical documentation and scripts to make daily work easier for all engineers on the team and improve the new developer onboarding experience.
 
@@ -24,9 +24,9 @@ React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh �
 React · TypeScript · Angularjs · Scala · Redux · PostgreSQL · Bootstrap · selenide · git
 ```
 
-- Developed a web application used to compose and deliver educational content to students via an online learning environment.
-- Migrated the client side application from Angularjs to React
-- Wrote and maintained reliable automation tests allowing us to continuously push new features to users with less worry that we'd accidentally broken something.
+- Developed a web application used to compose and deliver educational content. The authoring environment included a user friendly version control system powered by a bespoke graph style database structure.
+- Incrementally migrated the client side application from Angularjs to React.
+- Wrote and maintained reliable automation tests allowing us to continuously deliver new features with confidence.
 
 ---
 
@@ -72,7 +72,7 @@ JavaScript · HTML · CSS · JSP
 
 **Counselor + Medic** → Stone Mountain Adventures (06/2011 - 08/2011)
 
-- Taught music workshops and sailing classes for campers.
+- Ran music workshops and sailing classes for campers.
 - Led sessions with fellow counselors to demonstrate basic first aid techniques increasing the staff’s ability to manage minor medical traumas and boosting confidence levels.
 
 ---

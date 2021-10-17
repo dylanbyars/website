@@ -49,8 +49,13 @@ const PeriodicTable = () => {
         onKeyUp={(e) => e.key === "Escape" && clearActiveElement()}
         tabIndex={0}
       >
-        <h1 className="text-lg md:text-4xl">Periodic Table of the Elements</h1>
-        <div className={classnames(["flex flex-col", { blur: activeElement }])}>
+        {/* <h1 className="hidden sm:block md:text-4xl">Periodic Table of the Elements</h1> */}
+        <div
+          className={classnames([
+            "flex flex-col transform rotate-90 xs:rotate-0",
+            { blur: activeElement },
+          ])}
+        >
           <div className="flex pb-6">
             {groups.map((elements, i) => (
               <div
@@ -67,11 +72,11 @@ const PeriodicTable = () => {
                 {i === 2 && (
                   // group 3 has 2 placeholder elements that point to the lanthanides and actinides
                   <>
-                    <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-indigo-lightest">
-                      <small>57-71</small>
+                    <div className="flex justify-center items-center w-element h-element m-px border border-grey-dark rounded-sm bg-indigo-lightest">
+                      <small className="hidden lg:block">57-71</small>
                     </div>
-                    <div className="flex justify-center items-center w-12 h-12 m-1 border border-grey-dark rounded-sm bg-green-lightest">
-                      <small>89-103</small>
+                    <div className="flex justify-center items-center w-element h-element m-px border border-grey-dark rounded-sm bg-green-lightest">
+                      <small className="hidden lg:block">89-103</small>
                     </div>
                   </>
                 )}

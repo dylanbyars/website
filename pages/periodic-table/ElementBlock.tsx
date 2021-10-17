@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import React, {
   useState,
   useRef,
@@ -69,14 +70,21 @@ const ElementBlock: FunctionComponent<{
       <div
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseLeave}
-        className={`${
-          groupBlockStyles[element.groupBlock]
-        } relative flex justify-center items-end border border-grey-dark rounded-sm w-12 h-12 m-1 cursor-pointer`}
+        className={classNames(
+          [
+            `${
+              groupBlockStyles[element.groupBlock]
+            } relative flex justify-center items-center lg:items-end border border-grey-dark w-element h-element cursor-pointer m-px`,
+          ],
+          { "border-grey-darkest": isHovered } // TODO: not working
+        )}
       >
-        <small className="absolute top-0 right-0 pt-1 pr-1">
+        <small className="hidden lg:block absolute top-0.5 right-1.5">
           {element.atomicNumber}
         </small>
-        <div className="mb-1 text-xl">{element.symbol}</div>
+        <div className="hidden text-sm xs:block md:text-base lg:text-lg lg:mb-0.5">
+          {element.symbol}
+        </div>
       </div>
       {isHovered && (
         <div className="absolute" style={{ ...offsetY, ...offsetX }}>

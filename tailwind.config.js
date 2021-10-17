@@ -2,6 +2,12 @@ module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      spacing: {
+        element: "calc(100vw / 22)",
+      },
+      screens: {
+        xs: "430px",
+      },
       typography: {
         DEFAULT: {
           css: {

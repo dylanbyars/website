@@ -93,10 +93,10 @@ const Modal: FunctionComponent<{ element: ElementData; closeModal: Function }> =
 
             <ElementSummary element={element} wikiImage={wikiImage} />
 
-            <p>
+            <article>
               <h1 className="text-xl font-semibold mb-3">{name}</h1>
-              {wikiSummary}
-            </p>
+              <p>{wikiSummary}</p>
+            </article>
           </div>
         )}
       </div>
@@ -133,7 +133,7 @@ function ElementSummary({
   )
 
   return (
-    <div className="w-2/5 text-sm md:text-base float-right ml-6">
+    <aside className="w-2/5 text-sm md:text-base float-right ml-6">
       {wikiImage && <img src={wikiImage} alt={name} className="my-3 w-full" />}
       <Fact title="Atomic Number">{atomicNumber}</Fact>
       <Fact title="Group">
@@ -187,7 +187,7 @@ function ElementSummary({
         <A href={wiki}>Wikipedia</A>
         <A href={periodicVideoLink(atomicNumber)}>Video</A>
       </div>
-    </div>
+    </aside>
   )
 }
 

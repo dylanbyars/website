@@ -36,35 +36,25 @@ const Modal: FunctionComponent<{ element: ElementData; closeModal: Function }> =
     const [wikiSummary, setWikiSummary] = useState("")
     const [wikiImage, setWikiImage] = useState("")
 
-    const {
-      name,
-      atomicNumber,
-      atomicMass,
-      standardState,
-      meltingPoint,
-      boilingPoint,
-      groupBlock,
-      electronicConfiguration,
-      yearDiscovered,
-      wiki,
-    } = element
+    const { name, wiki } = element
 
     useEffect(() => {
-      // pull the last bit of the wiki url off
-      const regex = /wiki\/(.*)/g
-      const url = wiki
-      const wikiTitle = regex.exec(url)![1]
-
-      const wikiData = `https://en.wikipedia.org/api/rest_v1/page/summary/${wikiTitle}`
-
       const getWikiData = async () => {
-        const response = await fetch(wikiData)
+        const regex = /\/wiki\/(.*)$/g
+        const wikiTitle = regex.exec(wiki)![1]
+
+        const response = await fetch(
+          `https://en.wikipedia.org/api/rest_v1/page/summary/${wikiTitle}`
+        )
 
         if (response.ok) {
-          const data = await response.json()
+          const { extract, thumbnail } = (await response.json()) as {
+            extract: string
+            thumbnail?: { source: string }
+          }
 
-          setWikiSummary(data.extract)
-          setWikiImage(data.thumbnail.source ?? "")
+          setWikiSummary(extract)
+          setWikiImage(thumbnail?.source ?? "")
         }
       }
 
@@ -78,109 +68,35 @@ const Modal: FunctionComponent<{ element: ElementData; closeModal: Function }> =
       >
         {wikiSummary && (
           <div
-            className="flex justify-between relative w-3/4 border bg-white shadow-lg p-5 max-h-3/4 overflow-auto"
+            className="relative w-4/5 h-4/5 border rounded-sm bg-white p-3 pt-6 overflow-auto md:w-3/4 md:h-3/5 lg:w-auto lg:h-auto lg:max-w-2xl lg:max-h-1/2"
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-0 right-0 mr-4 mt-4 px-2 py-1 rounded-full trans trans-fast border border-indigo-light hover:border-indigo-dark text-indigo-light hover:text-indigo-dark hover text-sm"
+              className="absolute top-1.5 right-1.5 text-black"
               onClick={() => closeModal()}
             >
-              close
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
-            <div className="w-1/2 flex flex-col justify-around items-center">
-              <h1 className="text-3xl">{name}</h1>
-              {/* TODO: fix a size on the img so the modal doesn't move too much */}
-              {wikiImage && <img src={wikiImage} alt={name} className="my-3" />}
-              <div className="flex flex-col justify-between ">
-                <div className="flex my-1">
-                  <p className="mr-1 font-semibold">Group:</p>
-                  {groupWikis[groupBlock] ? (
-                    <A className="capitalize" href={groupWikis[groupBlock]}>
-                      {groupBlock}
-                    </A>
-                  ) : (
-                    <p className="capitalize">{groupBlock}</p>
-                  )}
-                </div>
-                <div className="flex my-1">
-                  <p className="mr-1 font-semibold">Standard State:</p>
-                  <p className="capitalize">
-                    {standardState ? standardState : "???"}
-                  </p>
-                </div>
-                <div className="flex my-1">
-                  <p className="mr-1 font-semibold">Atomic Weight:</p>
-                  <p>
-                    {atomicMass}
-                    <A
-                      className="ml-1 font-semibold"
-                      href="https://en.wikipedia.org/wiki/Standard_atomic_weight"
-                    >
-                      A<sub>r</sub>
-                    </A>
-                  </p>
-                </div>
-                <div className="flex my-1">
-                  <p className="mr-1 font-semibold">Melting Point:</p>
-                  <p>
-                    {meltingPoint ? meltingPoint : "???"}
-                    {meltingPoint && (
-                      <A
-                        className="ml-1"
-                        href="https://en.wikipedia.org/wiki/Kelvin"
-                      >
-                        K
-                      </A>
-                    )}
-                  </p>
-                </div>
-                <div className="flex my-1">
-                  <p className="mr-1 font-semibold">Boiling Point:</p>
-                  <p>
-                    {boilingPoint ? boilingPoint : "???"}
-                    {boilingPoint && (
-                      <A
-                        className="ml-1"
-                        href="https://en.wikipedia.org/wiki/Kelvin"
-                      >
-                        K
-                      </A>
-                    )}
-                  </p>
-                </div>
-                <div className="flex my-1">
-                  <A
-                    className="mr-1 font-semibold"
-                    href="https://en.wikipedia.org/wiki/Electron_configuration"
-                  >
-                    Electron Configuration:
-                  </A>
-                  <p>
-                    {electronicConfiguration.toString().replace(/\./g, " ")}
-                  </p>
-                </div>
-                <div className="flex my-1">
-                  <p className="mr-1 font-semibold">Year Discovered:</p>
-                  <p>{yearDiscovered}</p>
-                </div>
-              </div>
-            </div>
 
-            <p className="w-1/2 my-auto px-10 font-light max-h-1/2">
+            <ElementSummary element={element} wikiImage={wikiImage} />
+
+            <p>
+              <h1 className="text-xl font-semibold mb-3">{name}</h1>
               {wikiSummary}
             </p>
-
-            <div className="absolute bottom-0 right-0 mr-4 mb-4">
-              <A className="text-sm" href={wiki}>
-                Wikipedia
-              </A>
-              <A
-                className="ml-4 text-sm"
-                href={periodicVideoLink(atomicNumber)}
-              >
-                Video
-              </A>
-            </div>
           </div>
         )}
       </div>
@@ -188,6 +104,92 @@ const Modal: FunctionComponent<{ element: ElementData; closeModal: Function }> =
   }
 
 export default Modal
+
+function ElementSummary({
+  element,
+  wikiImage,
+}: {
+  element: ElementData
+  wikiImage?: string
+}) {
+  const {
+    atomicMass,
+    atomicNumber,
+    boilingPoint,
+    electronicConfiguration,
+    groupBlock,
+    meltingPoint,
+    name,
+    standardState,
+    wiki,
+    yearDiscovered,
+  } = element
+
+  const Fact: FunctionComponent<{ title: string }> = ({ title, children }) => (
+    <p>
+      <span className="mr-1 font-semibold">{`${title}:`}</span>
+      {children}
+    </p>
+  )
+
+  return (
+    <div className="w-2/5 text-sm md:text-base float-right ml-6">
+      {wikiImage && <img src={wikiImage} alt={name} className="my-3 w-full" />}
+      <Fact title="Atomic Number">{atomicNumber}</Fact>
+      <Fact title="Group">
+        {groupWikis[groupBlock] ? (
+          <A className="capitalize" href={groupWikis[groupBlock]}>
+            {groupBlock}
+          </A>
+        ) : (
+          <span className="capitalize">{groupBlock}</span>
+        )}
+      </Fact>
+      <Fact title="Standard State">
+        <span className="capitalize">
+          {standardState ? standardState : "???"}
+        </span>
+      </Fact>
+      <Fact title="Atomic Weight">
+        <span>
+          {atomicMass}
+          <A
+            className="ml-1 font-semibold"
+            href="https://en.wikipedia.org/wiki/Standard_atomic_weight"
+          >
+            A<sub>r</sub>
+          </A>
+        </span>
+      </Fact>
+      <Fact title="Melting Point">
+        <span>
+          {meltingPoint ? meltingPoint : "???"}
+          {meltingPoint && (
+            <A className="ml-1" href="https://en.wikipedia.org/wiki/Kelvin">
+              K
+            </A>
+          )}
+        </span>
+      </Fact>
+      <Fact title="Boiling Point">
+        {boilingPoint ? boilingPoint : "???"}
+        {boilingPoint && (
+          <A className="ml-1" href="https://en.wikipedia.org/wiki/Kelvin">
+            K
+          </A>
+        )}
+      </Fact>
+      <Fact title="Electron Configuration">
+        {electronicConfiguration.toString().replace(/\./g, " ")}
+      </Fact>
+      <Fact title="Year Discovered">{yearDiscovered}</Fact>
+      <div className="flex justify-around text-sm my-3">
+        <A href={wiki}>Wikipedia</A>
+        <A href={periodicVideoLink(atomicNumber)}>Video</A>
+      </div>
+    </div>
+  )
+}
 
 function periodicVideoLink(atomicNumber: number) {
   const formattedNumber =

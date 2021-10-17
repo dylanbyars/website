@@ -4,9 +4,10 @@ module.exports = {
     extend: {
       spacing: {
         element: "calc(100vw / 22)",
+        element__portrait: "calc(100vh / 22)",
       },
       screens: {
-        xs: "430px",
+        landscape: "450px",
       },
       typography: {
         DEFAULT: {

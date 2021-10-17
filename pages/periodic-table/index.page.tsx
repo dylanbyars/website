@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import React, { useState } from "react"
 import PageContainer from "../../components/PageContainer"
-import ElementBlock from "./ElementBlock"
+import ElementBlock, { Placeholder } from "./ElementBlock"
 import elementData, { ElementData } from "./elementData"
 import Modal from "./Modal"
 
@@ -42,6 +42,14 @@ const PeriodicTable = () => {
   const lanthanides = createRange(57, 71).map(getElement)
   const actinides = createRange(89, 103).map(getElement)
 
+  const renderElement = (element: ElementData) => (
+    <ElementBlock
+      key={element.name}
+      element={element}
+      setActiveElement={setActiveElement}
+    />
+  )
+
   return (
     <PageContainer title="Periodic Table of the Elements · Dylan Byars">
       <div
@@ -49,35 +57,25 @@ const PeriodicTable = () => {
         onKeyUp={(e) => e.key === "Escape" && clearActiveElement()}
         tabIndex={0}
       >
-        {/* <h1 className="hidden sm:block md:text-4xl">Periodic Table of the Elements</h1> */}
         <div
           className={classnames([
-            "flex flex-col transform rotate-90 xs:rotate-0",
+            "flex flex-col transform rotate-90 landscape:rotate-0",
             { blur: activeElement },
           ])}
         >
+        {/* <h1 className="absolute left-20 mx-auto">Periodic Table of the Elements</h1> */}
           <div className="flex pb-6">
             {groups.map((elements, i) => (
               <div
                 key={elements[0].atomicMass}
                 className="flex flex-col justify-end"
               >
-                {elements.map((element) => (
-                  <ElementBlock
-                    key={element.name}
-                    element={element}
-                    setActiveElement={setActiveElement}
-                  />
-                ))}
+                {elements.map(renderElement)}
                 {i === 2 && (
                   // group 3 has 2 placeholder elements that point to the lanthanides and actinides
                   <>
-                    <div className="flex justify-center items-center w-element h-element m-px border border-grey-dark rounded-sm bg-indigo-lightest">
-                      <small className="hidden lg:block">57-71</small>
-                    </div>
-                    <div className="flex justify-center items-center w-element h-element m-px border border-grey-dark rounded-sm bg-green-lightest">
-                      <small className="hidden lg:block">89-103</small>
-                    </div>
+                    <Placeholder>57-71</Placeholder>
+                    <Placeholder>89-103</Placeholder>
                   </>
                 )}
               </div>
@@ -86,13 +84,7 @@ const PeriodicTable = () => {
           <div className="flex flex-col">
             {[lanthanides, actinides].map((group) => (
               <div className="flex justify-end" key={group[0].groupBlock}>
-                {group.map((element) => (
-                  <ElementBlock
-                    key={element.name}
-                    element={element}
-                    setActiveElement={setActiveElement}
-                  />
-                ))}
+                {group.map(renderElement)}
               </div>
             ))}
           </div>

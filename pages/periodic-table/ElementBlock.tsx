@@ -74,7 +74,7 @@ const ElementBlock: FunctionComponent<{
           [
             `${
               groupBlockStyles[element.groupBlock]
-            } relative flex justify-center items-center lg:items-end border border-grey-dark w-element h-element cursor-pointer m-px`,
+            } relative flex justify-center items-center lg:items-end border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element cursor-pointer m-px`,
           ],
           { "border-grey-darkest": isHovered } // TODO: not working
         )}
@@ -82,7 +82,7 @@ const ElementBlock: FunctionComponent<{
         <small className="hidden lg:block absolute top-0.5 right-1.5">
           {element.atomicNumber}
         </small>
-        <div className="hidden text-sm xs:block md:text-base lg:text-lg lg:mb-0.5">
+        <div className="hidden text-sm landscape:block md:text-base lg:text-lg lg:mb-0.5">
           {element.symbol}
         </div>
       </div>
@@ -96,3 +96,9 @@ const ElementBlock: FunctionComponent<{
 }
 
 export default ElementBlock
+
+export const Placeholder: FunctionComponent = ({ children }) => (
+  <div className="flex justify-center items-center border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element m-px">
+    <small className="hidden md:block">{children}</small>
+  </div>
+)

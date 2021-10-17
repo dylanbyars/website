@@ -82,7 +82,7 @@ const ElementBlock: FunctionComponent<{
         <small className="hidden lg:block absolute top-0.5 right-1.5">
           {element.atomicNumber}
         </small>
-        <div className="hidden text-sm landscape:block md:text-base lg:text-lg lg:mb-0.5">
+        <div className="hidden text-sm landscape:block md:text-base lg:text-lg lg:mb-0.5 xl:text-2xl">
           {element.symbol}
         </div>
       </div>

@@ -1,8 +1,9 @@
 import classnames from "classnames"
-import React, { useState } from "react"
+import Fuse from "fuse.js"
+import React, { ChangeEventHandler, useEffect, useState } from "react"
 import PageContainer from "../../components/PageContainer"
 import ElementBlock, { Placeholder } from "./ElementBlock"
-import elementData, { ElementData } from "./elementData"
+import elementData, { ElementData, rawElementData } from "./elementData"
 import Modal from "./Modal"
 
 // TODO: a big text input right up top. search name, number, whatever and highlight the matching element(s)
@@ -10,6 +11,31 @@ import Modal from "./Modal"
 
 const PeriodicTable = () => {
   const [activeElement, setActiveElement] = useState<ElementData>()
+  const [searchTerm, setSearchTerm] = useState("")
+  const [searchResults, setSearchResults] = useState<any>()
+
+  const fuse = new Fuse(rawElementData, {
+    threshold: 0.3,
+    includeMatches: true,
+    keys: [
+      "atomicNumber",
+      "groupBlock",
+      "name",
+      "standardState",
+      "symbol",
+      "yearDiscovered",
+    ],
+  })
+
+  useEffect(() => {
+    // setSearchResults(fuse.search(searchTerm))
+    console.log(fuse.search(searchTerm))
+
+  }, [searchTerm])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value)
+  }
 
   const clearActiveElement = () => setActiveElement(undefined)
 
@@ -55,7 +81,6 @@ const PeriodicTable = () => {
       <div
         className="relative min-h-screen flex flex-col justify-around items-center"
         onKeyUp={(e) => e.key === "Escape" && clearActiveElement()}
-        tabIndex={0}
       >
         <div
           className={classnames([
@@ -63,7 +88,12 @@ const PeriodicTable = () => {
             { blur: activeElement },
           ])}
         >
-        {/* <h1 className="absolute left-20 mx-auto">Periodic Table of the Elements</h1> */}
+          {/* <h1 className="absolute left-20 mx-auto">Periodic Table of the Elements</h1> */}
+          <input
+            value={searchTerm}
+            onChange={handleInputChange}
+            className="border border-black"
+          />
           <div className="flex pb-6">
             {groups.map((elements, i) => (
               <div

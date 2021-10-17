@@ -22,7 +22,7 @@ export type ElementData = {
   yearDiscovered: string | number
 }
 
-const elementData: ElementData[] = [
+export const rawElementData: ElementData[] = [
   {
     atomicNumber: 1,
     symbol: "H",
@@ -2739,7 +2739,7 @@ const elementData: ElementData[] = [
   },
 ]
 
-export default elementData.reduce((acc, element) => {
+export default rawElementData.reduce((acc, element) => {
   acc[element.atomicNumber] = element
   return acc
 }, {} as { [atomicNumber: number]: ElementData })

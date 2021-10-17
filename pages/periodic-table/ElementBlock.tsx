@@ -26,8 +26,9 @@ const groupBlockStyles: any = {
 
 const ElementBlock: FunctionComponent<{
   element: ElementData
+  isInSearch: boolean
   setActiveElement: Dispatch<SetStateAction<ElementData | undefined>> // TODO: it feels weird to be this explicit
-}> = ({ element, setActiveElement }) => {
+}> = ({ element, isInSearch, setActiveElement }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [offsetX, setOffsetX] = useState({})
   const [offsetY, setOffsetY] = useState({})
@@ -62,36 +63,34 @@ const ElementBlock: FunctionComponent<{
   }
 
   return (
-    <div
-      className="relative"
+    <button
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseLeave}
+      className={classNames(
+        [
+          `${
+            groupBlockStyles[element.groupBlock]
+          } relative flex justify-center items-center lg:items-end border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element cursor-pointer m-px`,
+        ],
+        { "border-grey-darkest": isHovered }, // TODO: not working
+        {'bg-red': isInSearch}
+      )}
       ref={elementRef}
       onClick={() => setActiveElement(element)}
+      tabIndex={element.atomicNumber}
     >
-      <div
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseLeave}
-        className={classNames(
-          [
-            `${
-              groupBlockStyles[element.groupBlock]
-            } relative flex justify-center items-center lg:items-end border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element cursor-pointer m-px`,
-          ],
-          { "border-grey-darkest": isHovered } // TODO: not working
-        )}
-      >
-        <small className="hidden lg:block absolute top-0.5 right-1.5">
-          {element.atomicNumber}
-        </small>
-        <div className="hidden text-sm landscape:block md:text-base lg:text-lg lg:mb-0.5 xl:text-2xl">
-          {element.symbol}
-        </div>
+      <small className="hidden lg:block absolute top-0.5 right-1.5">
+        {element.atomicNumber}
+      </small>
+      <div className="hidden text-sm landscape:block md:text-base lg:text-lg lg:mb-0.5 xl:text-2xl">
+        {element.symbol}
       </div>
       {isHovered && (
         <div className="absolute" style={{ ...offsetY, ...offsetX }}>
           <ElementDetail element={element} />
         </div>
       )}
-    </div>
+    </button>
   )
 }
 

@@ -1,10 +1,10 @@
 import classNames from "classnames"
 import React, {
-  useState,
-  useRef,
-  FunctionComponent,
   Dispatch,
+  FunctionComponent,
   SetStateAction,
+  useRef,
+  useState,
 } from "react"
 import { ElementData } from "./elementData"
 import ElementDetail from "./ElementDetail"
@@ -25,10 +25,9 @@ const groupBlockStyles: any = {
 }
 
 const ElementBlock: FunctionComponent<{
-  element: ElementData
-  isInSearch: boolean
+  element: ElementData & { matches: any }
   setActiveElement: Dispatch<SetStateAction<ElementData | undefined>> // TODO: it feels weird to be this explicit
-}> = ({ element, isInSearch, setActiveElement }) => {
+}> = ({ element, setActiveElement }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [offsetX, setOffsetX] = useState({})
   const [offsetY, setOffsetY] = useState({})
@@ -70,10 +69,9 @@ const ElementBlock: FunctionComponent<{
         [
           `${
             groupBlockStyles[element.groupBlock]
-          } relative flex justify-center items-center lg:items-end border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element cursor-pointer m-px`,
+          } relative flex justify-center items-center lg:items-end border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element m-px`,
         ],
-        { "border-grey-darkest": isHovered }, // TODO: not working
-        {'bg-red': isInSearch}
+        { "font-extrabold": element.matches }
       )}
       ref={elementRef}
       onClick={() => setActiveElement(element)}

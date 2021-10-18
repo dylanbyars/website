@@ -1,3 +1,30 @@
+const createRange = (start: number, end: number): number[] => [
+  ...new Array(end - start + 1).fill(start).map((x, i) => x + i),
+]
+
+export const groups = [
+  [1, 3, 11, 19, 37, 55, 87],
+  [4, 12, 20, 38, 56, 88],
+  [21, 39],
+  [22, 40, 72, 104],
+  [23, 41, 73, 105],
+  [24, 42, 74, 106],
+  [25, 43, 75, 107],
+  [26, 44, 76, 108],
+  [27, 45, 77, 109],
+  [28, 46, 78, 110],
+  [29, 47, 79, 111],
+  [30, 48, 80, 112],
+  [5, 13, 31, 49, 81, 113],
+  [6, 14, 32, 50, 82, 114],
+  [7, 15, 33, 51, 83, 115],
+  [8, 16, 34, 52, 84, 116],
+  [9, 17, 35, 53, 85, 117],
+  [2, 10, 18, 36, 54, 86, 118],
+  createRange(57, 71),
+  createRange(89, 103),
+]
+
 export type ElementData = {
   atomicMass: string | number
   atomicNumber: number
@@ -22,7 +49,7 @@ export type ElementData = {
   yearDiscovered: string | number
 }
 
-export const elementData: ElementData[] = [
+const elementData: ElementData[] = [
   {
     atomicNumber: 1,
     symbol: "H",
@@ -2739,30 +2766,4 @@ export const elementData: ElementData[] = [
   },
 ]
 
-const createRange = (start: number, end: number): number[] => [
-  ...new Array(end - start + 1).fill(start).map((x, i) => x + i),
-]
-
-export const groups = [
-  [1, 3, 11, 19, 37, 55, 87],
-  [4, 12, 20, 38, 56, 88],
-  [21, 39],
-  [22, 40, 72, 104],
-  [23, 41, 73, 105],
-  [24, 42, 74, 106],
-  [25, 43, 75, 107],
-  [26, 44, 76, 108],
-  [27, 45, 77, 109],
-  [28, 46, 78, 110],
-  [29, 47, 79, 111],
-  [30, 48, 80, 112],
-  [5, 13, 31, 49, 81, 113],
-  [6, 14, 32, 50, 82, 114],
-  [7, 15, 33, 51, 83, 115],
-  [8, 16, 34, 52, 84, 116],
-  [9, 17, 35, 53, 85, 117],
-  [2, 10, 18, 36, 54, 86, 118],
-  createRange(57, 71),
-  createRange(89, 103),
-]
-
+export default elementData

@@ -3,24 +3,20 @@ import Fuse from "fuse.js"
 import React, { useEffect, useState } from "react"
 import PageContainer from "../../components/PageContainer"
 import ElementBlock, { Placeholder } from "./ElementBlock"
-import {
-  groups,
-  ElementData,
-  elementData as rawElementData,
-} from "./elementData"
+import rawElementData, { groups, ElementData } from "./elementData"
 import Modal from "./Modal"
 import produce from "immer"
 
 const fuse = new Fuse(rawElementData, {
-  threshold: 0.3,
+  threshold: 0.2,
   includeMatches: true,
   keys: [
-    "atomicNumber",
-    "groupBlock",
+    // "atomicNumber",
+    // "groupBlock",
     "name",
     "standardState",
     "symbol",
-    "yearDiscovered",
+    // "yearDiscovered",
   ],
 })
 
@@ -30,12 +26,24 @@ const PeriodicTable = () => {
   >(rawElementData as any) // TODO: type properly
   const [activeElement, setActiveElement] = useState<ElementData>()
   const [searchTerm, setSearchTerm] = useState<string>("")
+  const [matches, setMatches] = useState([])
 
   useEffect(() => {
-    // setSearchResults(fuse.search(searchTerm))
-    console.log(fuse.search(searchTerm))
-
+    const results = fuse.search(searchTerm)
+    setMatches(results)
+    const updatedElementData = produce(rawElementData as any, (draft: any) => {
+      results.map(({ item, matches }) => {
+        draft[item.atomicNumber - 1].matches = matches
+      })
+    })
+    setElementData(updatedElementData as any)
   }, [searchTerm])
+
+  // useEffect(() => {
+  //   if (matches.length === 1) {
+  //     setActiveElement(matches[0].item)
+  //   }
+  // }, [matches])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value)

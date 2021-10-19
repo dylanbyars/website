@@ -24,10 +24,14 @@ const groupBlockStyles: any = {
   "probably noble gas": "bg-grey-lighter",
 }
 
+const blockStyles =
+  "flex justify-center items-center w-element__portrait h-element__portrait landscape:w-element landscape:h-element m-px"
+
 const ElementBlock: FunctionComponent<{
   element: ElementData & { matches: any }
   setActiveElement: Dispatch<SetStateAction<ElementData | undefined>> // TODO: it feels weird to be this explicit
-}> = ({ element, setActiveElement }) => {
+  className?: string
+}> = ({ element, setActiveElement, className }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [offsetX, setOffsetX] = useState({})
   const [offsetY, setOffsetY] = useState({})
@@ -65,14 +69,14 @@ const ElementBlock: FunctionComponent<{
     <button
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseLeave}
-      className={classNames(
-        [
-          `${
-            groupBlockStyles[element.groupBlock]
-          } relative flex justify-center items-center lg:items-end border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element m-px`,
-        ],
-        { "font-extrabold": element.matches }
-      )}
+      className={classNames([
+        blockStyles,
+        groupBlockStyles[element.groupBlock],
+        { ["border-4 border-black"]: element.matches },
+        { ["border border-grey-dark"]: !element.matches },
+        "relative lg:items-end",
+        className,
+      ])}
       ref={elementRef}
       onClick={() => setActiveElement(element)}
       tabIndex={element.atomicNumber}
@@ -94,8 +98,13 @@ const ElementBlock: FunctionComponent<{
 
 export default ElementBlock
 
-export const Placeholder: FunctionComponent = ({ children }) => (
-  <div className="flex justify-center items-center border border-grey-dark w-element__portrait h-element__portrait landscape:w-element landscape:h-element m-px">
+export const Placeholder: FunctionComponent<{ className?: string }> = ({
+  className,
+  children,
+}) => (
+  <div
+    className={classNames([blockStyles, "border border-grey-dark", className])}
+  >
     <small className="hidden md:block">{children}</small>
   </div>
 )

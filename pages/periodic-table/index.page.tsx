@@ -81,7 +81,7 @@ const PeriodicTable = () => {
         <input
           value={searchTerm}
           onChange={handleInputChange}
-          className="z-10 hidden sm:block border border-black text-xl -mb-6 md:mb-6 md:text-5xl xl:-mb-8 xl:text-6xl p-2 w-1/2 text-center"
+          className="z-10 hidden sm:block border border-black text-xl -mb-6 md:mb-6 md:text-5xl xl:-mb-8 xl:text-6xl p-2 w-1/3 text-center"
           placeholder="neon, Au, liquid"
           tabIndex={1}
         />

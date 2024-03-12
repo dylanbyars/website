@@ -1,12 +1,9 @@
-import type { NextPage } from "next"
 import Head from "next/head"
+import type { FC, PropsWithChildren } from "react"
 
-// TODO: put github links here somewhere? optionally link to code for current page
-const PageContainer: NextPage<{ title: string; className?: string }> = ({
-  children,
-  title,
-  className,
-}) => {
+const PageContainer: FC<
+  PropsWithChildren<{ title: string; className?: string }>
+> = ({ children, title, className }) => {
   return (
     <main className={className}>
       <Head>

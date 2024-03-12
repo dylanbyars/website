@@ -2,6 +2,7 @@ import classNames from "classnames"
 import React, {
   Dispatch,
   FunctionComponent,
+  PropsWithChildren,
   SetStateAction,
   useRef,
   useState,
@@ -98,10 +99,9 @@ const ElementBlock: FunctionComponent<{
 
 export default ElementBlock
 
-export const Placeholder: FunctionComponent<{ className?: string }> = ({
-  className,
-  children,
-}) => (
+export const Placeholder: FunctionComponent<
+  PropsWithChildren<{ className?: string }>
+> = ({ className, children }) => (
   <div
     className={classNames([blockStyles, "border border-grey-dark", className])}
   >

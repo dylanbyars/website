@@ -188,7 +188,7 @@ function ElementSummary({
         <A href={periodicVideoLink(atomicNumber)}>Video</A>
       </div>
     </aside>
-  )
+  );
 }
 
 function periodicVideoLink(atomicNumber: number) {

@@ -1,6 +1,6 @@
 import { default as classNames, default as classnames } from "classnames"
-import Fuse from "fuse.js"
-import produce from "immer"
+import Fuse, { FuseResult } from "fuse.js"
+import { produce } from "immer"
 import React, { useEffect, useState } from "react"
 import PageContainer from "../../components/PageContainer"
 import ElementBlock, { Placeholder } from "./ElementBlock"
@@ -23,10 +23,10 @@ const fuse = new Fuse(rawElementData, {
 const PeriodicTable = () => {
   const [elementData, setElementData] = useState<
     (ElementData & { matches: any })[]
-  >(rawElementData as any) // TODO: type properly
+  >(rawElementData as any)
   const [activeElement, setActiveElement] = useState<ElementData>()
   const [searchTerm, setSearchTerm] = useState<string>("")
-  const [matches, setMatches] = useState<Fuse.FuseResult<ElementData>[]>()
+  const [matches, setMatches] = useState<FuseResult<ElementData>[]>()
 
   useEffect(() => {
     const results = fuse.search(searchTerm)

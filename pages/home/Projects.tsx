@@ -14,15 +14,15 @@ const PeriodicTableImg = () => (
 
 const Projects = () => (
   <section className="projects flex flex-col justify-around items-center">
-    <Link href="/periodic-table">
-      <a className="link" title={periodicTableTitle()}>
-        <article className="mx-auto mt-6 flex flex-col items-center">
-          <PeriodicTableImg />
-          <p className="p-6">
-            A wikipedia-powered periodic table built with React.
-          </p>
-        </article>
-      </a>
+    <Link href="/periodic-table" className="link" title={periodicTableTitle()}>
+
+      <article className="mx-auto mt-6 flex flex-col items-center">
+        <PeriodicTableImg />
+        <p className="p-6">
+          A wikipedia-powered periodic table built with React.
+        </p>
+      </article>
+
     </Link>
   </section>
 )

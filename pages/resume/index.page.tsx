@@ -38,7 +38,7 @@ const Resume: NextPage<{ html: string; raw: string }> = ({ html, raw }) => {
         />
       )}
     </PageContainer>
-  )
+  );
 }
 
 export async function getStaticProps() {

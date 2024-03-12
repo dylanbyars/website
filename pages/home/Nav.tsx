@@ -12,13 +12,13 @@ const linkClassName = "link text-4xl mt-1 md:text-3xl"
 
 const Nav: FunctionComponent = () => (
   <nav className="flex flex-col items-end justify-end">
-    <Link href="/resume">
-      <a
-        className={linkClassName}
-        title="My official (and lightly abridged) resume"
-      >
+    <Link
+      href="/resume"
+      className={linkClassName}
+      title="My official (and lightly abridged) resume">
+      
         resume
-      </a>
+      
     </Link>
     {Object.entries(EXTERNAL_LINKS).map(([title, href]) => (
       <a title={title} href={href} className={linkClassName} key={title}>

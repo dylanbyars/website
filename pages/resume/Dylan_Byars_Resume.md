@@ -6,7 +6,18 @@ Full stack software engineer with experience in the finance, education, and heal
 
 ## Work
 
-**Senior Software Engineer** → Capital One (11/2019 - now)
+
+**Senior Software Engineer** → Komodo Health (2/2022 - Present)
+
+```
+Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript
+```
+
+- Participated in the design and implementation of a centralized search service using AWS Lambda, Kafka, OpenSearch, and Python. This service unified data access across microservices, improving application integrity and data uniformity.
+- Wrote comprehensive documentation and guides. These materials streamlined how developers interact with the search service, eliminating redundant search implementations.
+- Developed and maintained robust testing frameworks with locust and pytest. I integrated these with GitHub Actions for automated testing across multiple services, identifying performance bottlenecks and optimizing service delivery.
+
+**Senior Software Engineer** → Capital One (11/2019 - 12/2021)
 
 ```
 React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git

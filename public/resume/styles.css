@@ -1,0 +1,136 @@
+:root {
+  /* Core colors */
+  --color-bg: #eee;
+  --color-text: #1a1a1a;
+  --color-text-muted: #4a4a4a;
+  --color-accent: #2b2b2b;
+  --color-accent-light: #404040;
+  --color-border: #e0e0e0;
+
+  /* Code block colors */
+  --color-code-bg: #1a1a1a;
+  --color-code-text: #f0f0f0;
+}
+
+/* Base styles */
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: monospace;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Header and name */
+h1 {
+  color: var(--color-text);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.5rem;
+}
+
+/* Section headers */
+h2 {
+  color: var(--color-accent);
+  font-size: 1.75rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.25rem;
+}
+
+/* Top links section */
+p:first-of-type {
+  margin-bottom: 2rem;
+}
+
+p:first-of-type a {
+  margin: 0 0.5rem;
+}
+
+/* Job titles */
+strong {
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+/* Code blocks */
+pre {
+  background-color: var(--color-code-bg);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+code {
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 0.9rem;
+  color: var(--color-code-text);
+}
+
+/* List styles */
+ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+/* Education section */
+p:last-of-type {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  /* Increase base font size */
+  body {
+    padding: 1rem;
+    font-size: 1.125rem; /* 18px */
+  }
+
+  /* Adjust heading sizes proportionally */
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  /* Increase link tap targets */
+  a {
+    padding: 0.25rem 0;
+  }
+
+  /* Make code more readable on mobile */
+  code {
+    font-size: 1rem;
+  }
+
+  /* Increase list spacing for better touch targets */
+  li {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Increase padding in code blocks */
+  pre {
+    padding: 1.5rem;
+  }
+}

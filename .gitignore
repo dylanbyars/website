@@ -33,3 +33,4 @@ yarn-error.log*
 # vercel
 .vercel
 projects/periodic-table/node_modules
+public/periodic-table/assets

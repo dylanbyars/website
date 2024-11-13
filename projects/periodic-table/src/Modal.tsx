@@ -1,5 +1,5 @@
 import classnames from 'classnames'
-import React, { FunctionComponent, PropsWithChildren, useEffect, useState, } from 'react'
+import { FunctionComponent, PropsWithChildren, useEffect, useState, } from 'react'
 import { ElementData, } from './elementData'
 
 const groupWikis: Record<string, string> = {

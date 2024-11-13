@@ -32,3 +32,4 @@ yarn-error.log*
 
 # vercel
 .vercel
+projects/periodic-table/node_modules

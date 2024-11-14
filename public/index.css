@@ -154,8 +154,16 @@ main.home {
     align-items: center;
 
     & > a {
-      color: inherit;
       text-decoration: none;
+      color: var(--color-grey-lightest);
+      transition: all 0.1s ease-in-out;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+    }
+
+    & > a:hover {
+      background-color: var(--color-yellow-lightest);
+      color: var(--color-black);
     }
   }
 
@@ -199,6 +207,10 @@ article {
 }
 
 .periodic-table-grid-container {
+  height: 15vh;
+  width: 66%;
+  max-width: 20rem;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 10fr 5fr 1fr;
   grid-template-rows: 1fr 2fr 4fr 1fr 2fr;

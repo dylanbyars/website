@@ -1,3 +1,8 @@
+---
+title: Dylan Byars · Resume
+date: 2024-11-13
+---
+
 # Dylan Byars
 
 [website](https://dylanbyars.com) · [GitHub](https://github.com/dylanbyars) · [LinkedIn](https://www.linkedin.com/in/dylanbyars/) · [email](mailto:dylan@dylanbyars.com)

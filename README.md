@@ -1,13 +1,6 @@
-# For Development
-
-Install `browser-sync`
-
-```bash
-npm install -g browser-sync
-```
-
-run the `preview` script that I have in my `.zshrc`
-
 # TODO:
-- figure out if I want tailwind at the base of the project or not. probably not. then I need to hand style the homepage because I still like that style
 - what's the difference between a `/public` dir and a `build` dir?
+- figure out how to pipe the blog .md files to the `build` dir AND how to make an index of them automatically
+- 404 page
+- figure out how to make a blog post template to use frontmatter
+- favicon for all the pages

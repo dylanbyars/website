@@ -7,7 +7,7 @@ date: 2024-11-13
 
 [website](https://dylanbyars.com) · [GitHub](https://github.com/dylanbyars) · [LinkedIn](https://www.linkedin.com/in/dylanbyars/) · [email](mailto:dylan@dylanbyars.com)
 
-Full stack software engineer with experience in the finance, education, and healthcare sectors.
+> Full stack software engineer with experience in the finance, education, and healthcare sectors.
 
 ## Work
 

@@ -158,7 +158,7 @@ main.home {
       color: var(--color-grey-lightest);
       transition: all 0.1s ease-in-out;
       border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
+      padding: 1rem;
     }
 
     & > a:hover {
@@ -221,6 +221,7 @@ article {
   width: 66%;
   max-width: 20rem;
   margin: 0 auto;
+  padding: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 10fr 5fr 1fr;
   grid-template-rows: 1fr 2fr 4fr 1fr 2fr;

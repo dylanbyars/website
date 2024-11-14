@@ -22,6 +22,8 @@ Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript
 - Wrote comprehensive documentation and guides. These materials streamlined how developers interact with the search service, eliminating redundant search implementations.
 - Developed and maintained robust testing frameworks with locust and pytest. I integrated these with GitHub Actions for automated testing across multiple services, identifying performance bottlenecks and optimizing service delivery.
 
+---
+
 **Senior Software Engineer** → Capital One (11/2019 - 12/2021)
 
 ```

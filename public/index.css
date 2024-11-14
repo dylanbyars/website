@@ -2,6 +2,7 @@
   /* Base colors */
   --color-transparent: transparent;
   --color-black: #22292f;
+  --color-white: #eeeeee;
 
   /* Greys */
   --color-grey-darkest: #3d4852;
@@ -11,7 +12,6 @@
   --color-grey-light: #dae1e7;
   --color-grey-lighter: #f1f5f8;
   --color-grey-lightest: #f8fafc;
-  --color-white: #ffffff;
 
   /* Reds */
   --color-red-darkest: #3b0d0c;
@@ -95,9 +95,29 @@
   --color-pink-lightest: #ffebef;
 }
 
-/* Then the rest of your styles using these variables */
 body {
   margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.875rem;
+  margin: 0.5rem;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
 main.home {
@@ -109,46 +129,62 @@ main.home {
   color: var(--color-grey-lightest);
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto 66vh auto;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     "projects header"
     ". nav";
-
   overflow: auto;
-}
 
-.home header {
-  grid-area: header;
-}
+  & > header {
+    grid-area: header;
+    position: relative;
 
-.home nav {
-  grid-area: nav;
-}
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
 
-.home .projects {
-  grid-area: projects;
-}
+  & > .projects {
+    grid-area: projects;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
-header {
-  position: relative;
-}
+    & > a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
 
-h1 {
-  font-weight: 100;
-  font-size: 1.875rem;
-  margin: 0.5rem;
-}
+  & > nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
 
-h2, h3, h4, h5, h6 {
-  font-weight: 100;
-  margin: 0;
-}
+    & > a {
+      font-size: 2.25rem;
+      margin-top: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      color: var(--color-yellow-lightest);
+      text-decoration: none;
+      transition: all 0.1s ease-in-out;
 
-.projects {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+      &:hover {
+        color: var(--color-black);
+        background-color: var(--color-yellow-lightest);
+      }
+
+      @media (min-width: 768px) {
+        font-size: 1.875rem;
+      }
+    }
+  }
 }
 
 article {
@@ -156,6 +192,10 @@ article {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & > p {
+    padding: 1.5rem;
+  }
 }
 
 .periodic-table-grid-container {
@@ -168,88 +208,44 @@ article {
     "alkali alkaline-earth metals metalloids-ish nobles"
     ". . . . ."
     ". . weirdos weirdos weirdos";
-}
 
-.periodic-table-grid-container span {
-  display: block;
-}
+  & > span {
+    display: block;
 
-.alkali {
-  grid-area: alkali;
-  background-color: var(--color-grey);
-  color: var(--color-grey);
-}
+    &.alkali {
+      grid-area: alkali;
+      background-color: var(--color-grey);
+      color: var(--color-grey);
+    }
 
-.alkaline-earth {
-  grid-area: alkaline-earth;
-  background-color: var(--color-red-light);
-  color: var(--color-red-light);
-}
+    &.alkaline-earth {
+      grid-area: alkaline-earth;
+      background-color: var(--color-red-light);
+      color: var(--color-red-light);
+    }
 
-.metals {
-  grid-area: metals;
-  background-color: var(--color-pink-light);
-  color: var(--color-pink-light);
-}
+    &.metals {
+      grid-area: metals;
+      background-color: var(--color-pink-light);
+      color: var(--color-pink-light);
+    }
 
-.metalloids-ish {
-  grid-area: metalloids-ish;
-  background-color: var(--color-orange-light);
-  color: var(--color-orange-light);
-}
+    &.metalloids-ish {
+      grid-area: metalloids-ish;
+      background-color: var(--color-orange-light);
+      color: var(--color-orange-light);
+    }
 
-.nobles {
-  grid-area: nobles;
-  background-color: var(--color-blue-light);
-  color: var(--color-blue-light);
-}
+    &.nobles {
+      grid-area: nobles;
+      background-color: var(--color-blue-light);
+      color: var(--color-blue-light);
+    }
 
-.weirdos {
-  grid-area: weirdos;
-  background-color: var(--color-green-light);
-  color: var(--color-green-light);
-}
-
-article p {
-  padding: 1.5rem;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-nav a {
-  font-size: 2.25rem;
-  margin-top: 0.25rem;
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-nav a:hover {
-  opacity: 0.7;
-}
-
-@media (min-width: 768px) {
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  nav a {
-    font-size: 1.875rem;
+    &.weirdos {
+      grid-area: weirdos;
+      background-color: var(--color-green-light);
+      color: var(--color-green-light);
+    }
   }
 }

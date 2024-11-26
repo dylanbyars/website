@@ -30,3 +30,4 @@ yarn-error.log*
 static/projects/periodic-table/node_modules
 static/public/periodic-table/assets
 .env
+freshrss/data

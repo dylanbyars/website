@@ -4,3 +4,4 @@
 - [ ] 404 page
 - [ ] figure out how to make a blog post template to use frontmatter
 - [ ] favicon for all the pages
+- [ ] figure out where to host this now that it's containers. there's [bunny](https://wilw.dev/notes/bunny-hosting/)?

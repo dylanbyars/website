@@ -8,17 +8,17 @@ dev:
 	@zsh -c 'cd ./public && . ~/.zshrc && nvm use stable && preview'
 
 # Build resume
-resume: ./resume/Dylan_Byars_Resume.md ./resume/resume_template.html
-	pandoc --standalone --template ./resume/resume_template.html -o ./public/resume/index.html ./resume/Dylan_Byars_Resume.md
+resume: ./static/resume/Dylan_Byars_Resume.md ./static/resume/resume_template.html
+	pandoc --standalone --template ./static/resume/resume_template.html -o ./static/public/resume/index.html ./static/resume/Dylan_Byars_Resume.md
 
 # Build periodic table project
 periodic-table:
-	@zsh -c 'cd ./projects/periodic-table/ && . ~/.zshrc && nvm use && npm install && npm run build'
+	@zsh -c 'cd ./static/projects/periodic-table/ && . ~/.zshrc && nvm use && npm install && npm run build'
 
 # Clean built files
 clean:
-	rm -rf public/periodic-table
-	rm -rf public/resume
+	rm -rf static/public/periodic-table
+	rm -rf static/public/resume
 
 all:
 	make resume

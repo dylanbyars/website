@@ -2,15 +2,12 @@
 
 # dependencies
 /node_modules
+**/node_modules/
 /.pnp
 .pnp.js
 
 # testing
 /coverage
-
-# next.js
-/.next/
-/out/
 
 # production
 /build
@@ -30,7 +27,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# vercel
-.vercel
-projects/periodic-table/node_modules
-public/periodic-table/assets
+static/projects/periodic-table/node_modules
+static/public/periodic-table/assets
+.env

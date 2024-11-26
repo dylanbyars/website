@@ -1,31 +1,18 @@
 services:
-  # nginx:
-  #   image: nginx:alpine
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-  #     - ./static/public:/usr/share/nginx/html:ro
-  #   networks:
-  #     - frontend
-  #     - backend
-
-  freshrss:
-    image: freshrss/freshrss:latest
+  nginx:
+    image: nginx:alpine
     ports:
-      - "9999:80"
+      - "80:80"
     volumes:
-      - ./services/freshrss/data:/var/www/FreshRSS/data
-      - ./services/freshrss/freshrss_extensions:/var/www/FreshRSS/extensions
-    # networks:
-    #   - backend
-    #   - frontend
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./static/public:/usr/share/nginx/html:ro
+    networks:
+      - frontend
+      - backend
+
 
 networks:
   frontend:
   backend:
     internal: true
 
-volumes:
-  freshrss_data:
-  freshrss_extensions:

@@ -1,14 +1,12 @@
 # Personal Website & FreshRSS Setup
 
 ## Overview
-This setup serves a static website at the root path (`/`) and FreshRSS at `/freshrss` using Nginx as a reverse proxy. Docker containers with custom networking ensure secure communication between services.
+This setup serves a static website at the root path (`/`) using Nginx as a reverse proxy. Docker containers with custom networking ensure secure communication between services.
 
 ## Key Components
 
 ### Docker Services
 - **Nginx**: Reverse proxy and static file server
-- **FreshRSS**: RSS reader application
-- **Networks**: Internal backend network for service isolation
 
 # TODO:
 - [ ] what's the difference between a `/public` dir and a `build` dir?
@@ -16,5 +14,5 @@ This setup serves a static website at the root path (`/`) and FreshRSS at `/fres
 - [ ] 404 page
 - [ ] figure out how to make a blog post template to use frontmatter
 - [ ] favicon for all the pages
-- [ ] figure out where to host this now that it's containers. there's [bunny](https://wilw.dev/notes/bunny-hosting/)?
+- [ ] figure out where to host this now that it's containers. -> linode
 - [ ] other services I want to host and access on the internet?

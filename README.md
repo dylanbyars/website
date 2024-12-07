@@ -1,18 +1,10 @@
-# Personal Website & FreshRSS Setup
+# Personal Website
 
-## Overview
-This setup serves a static website at the root path (`/`) using Nginx as a reverse proxy. Docker containers with custom networking ensure secure communication between services.
+A simple personal website served by an `nginx` Docker container.
 
-## Key Components
+A `Makefile` provides scripts to:
+- start a dev server for local development
+- build an html version of my markdown resume
+- build a `periodic-table` react app with `vite`
 
-### Docker Services
-- **Nginx**: Reverse proxy and static file server
-
-# TODO:
-- [ ] what's the difference between a `/public` dir and a `build` dir?
-- [ ] figure out how to pipe the blog .md files to the `build` dir AND how to make an index of them automatically
-- [ ] 404 page
-- [ ] figure out how to make a blog post template to use frontmatter
-- [ ] favicon for all the pages
-- [ ] figure out where to host this now that it's containers. -> linode
-- [ ] other services I want to host and access on the internet?
+After rewriting my personal website at least 5 different times in almost as many years, I've finally moved away from a framework. The fear of having to do a big dependencies upgrade every time I wanted to make a content change to my site kept me from touching it - the whole system felt fragile. Now, it's composed of simpler technology that feels more stable. It also frees me up to expand the system from something that just serves static files to an entire web app with a backend.

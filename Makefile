@@ -3,9 +3,9 @@
 # - node (via nvm)
 # - browser-sync (installed via node)
 
-# use `zsh` so my `.zshrc` is interpretable, then go to the built files, source my `.zshrc` file so the `preview` command is available, use the stable version of node so that the programs `preview` calls are available in the shell, then run the `preview` command
+# Run a local preview server
 dev:
-	@zsh -c 'cd ./static/public && . ~/.zshrc && nvm use stable && preview'
+	@zsh -c 'cd ./static/public && mise && . ./scripts/preview.sh'
 
 # Build resume
 resume: ./static/resume/Dylan_Byars_Resume.md ./static/resume/resume_template.html

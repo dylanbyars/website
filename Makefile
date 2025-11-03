@@ -5,7 +5,7 @@
 
 # Run a local preview server
 dev:
-	@zsh -c 'cd ./static/public && mise && . ./scripts/preview.sh'
+	@mise exec -- ./scripts/preview.sh
 
 # Build resume
 resume: ./static/resume/Dylan_Byars_Resume.md ./static/resume/resume_template.html

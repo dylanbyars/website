@@ -1,18 +1,35 @@
 ---
 title: Dylan Byars · Resume
-date: 2024-11-13
+date: 2025-11-03
 ---
 
 # Dylan Byars
 
 [website](https://dylanbyars.com) · [GitHub](https://github.com/dylanbyars) · [LinkedIn](https://www.linkedin.com/in/dylanbyars/) · [email](mailto:dylan@dylanbyars.com)
 
-> Full stack software engineer with experience in the finance, education, and healthcare sectors.
+> Full stack software engineer with expertise in agentic systems, data analytics, and wielding AI-assisted development tools with experience in finance, education, and healthcare.
 
 ## Work
 
+**Senior Software Engineer** → Komodo Health (5/2025 - Present)
 
-**Senior Software Engineer** → Komodo Health (2/2022 - Present)
+```
+Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integration
+```
+
+- Architected and deployed an AI agent used by executive leadership and data teams to analyze data use across products and customers through natural language queries and interactive visualizations.
+- Designed hybrid agent tool system combining verified parameterized queries for safe predetermined analysis with open-ended SQL generation capabilities for exploratory data work, balancing security and reproducibility with analytical flexibility.
+- Single handedly led end-to-end development from user problem discovery and UX/UI design through production deployment, including query design against existing Snowflake schemas, agent framework integration (Strands SDK + AWS Bedrock Claude), and automated deployment infrastructure.
+- Implemented secure production deployment with JWT authentication, role-based Snowflake access control, EC2 hosting with automated updates, and conversation-scoped temporary table isolation for multi-user agent interactions.
+
+**Additional AI Initiatives**
+
+- Evaluated and championed AI development tools (Claude Code, Cursor) for engineering teams and general LLM capabilities for non-technical staff as part of company AI council.
+- Currently prototyping customer success ticket analysis agent to aggregate user feedback for product roadmap prioritization and measure CS team response quality.
+
+---
+
+**Senior Software Engineer** → Komodo Health (2/2022 - 5/2025)
 
 ```
 Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript

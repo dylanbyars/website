@@ -6,9 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <title>Dylan Byars · Resume</title>
+  <script>
+    // Intercept Ctrl+P / Cmd+P and open PDF instead
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+        e.preventDefault();
+        window.open('Dylan_Byars_Resume.pdf');
+      }
+    });
+  </script>
 </head>
 
 <body>
+  <div class="pdf-download">
+    <a href="Dylan_Byars_Resume.pdf" download class="download-btn">Download PDF</a>
+  </div>
   <h1 id="dylan-byars">Dylan Byars</h1>
   <p><a href="https://dylanbyars.com">website</a> · <a
   href="https://github.com/dylanbyars">GitHub</a> · <a

@@ -6,9 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <title>$title$</title>
+  <script>
+    // Intercept Ctrl+P / Cmd+P and open PDF instead
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+        e.preventDefault();
+        window.open('Dylan_Byars_Resume.pdf');
+      }
+    });
+  </script>
 </head>
 
 <body>
+  <div class="pdf-download">
+    <a href="Dylan_Byars_Resume.pdf" download class="download-btn">Download PDF</a>
+  </div>
   $body$
 </body>
 

@@ -9,6 +9,10 @@
 #set page(
   paper: "us-letter",
   margin: (x: 0.6in, y: 0.6in),
+  footer: [
+    #set text(size: 7pt, fill: rgb("#999999"))
+    #align(center)[{{ version }}]
+  ]
 )
 
 #set text(

@@ -9,6 +9,8 @@ from pathlib import Path
 from jinja2 import Template
 import subprocess
 import sys
+from datetime import datetime
+import frontmatter
 
 
 def parse_resume_markdown(md_text):
@@ -200,7 +202,7 @@ def escape_at_signs(text):
     return text.replace('@', r'\@')
 
 
-def generate_typst(data, template_path):
+def generate_typst(data, template_path, version):
     """Generate typst content from parsed data using Jinja2 template."""
     # Escape @ signs in education
     if data.get('education'):
@@ -209,7 +211,7 @@ def generate_typst(data, template_path):
     with open(template_path, 'r') as f:
         template = Template(f.read())
 
-    return template.render(**data)
+    return template.render(**data, version=version)
 
 
 def main():
@@ -219,16 +221,30 @@ def main():
     template_path = repo_root / 'static' / 'resume' / 'resume_template.typ.jinja'
     typ_output = repo_root / 'static' / 'resume' / 'resume_generated.typ'
 
-    # Parse markdown
+    # Parse markdown with frontmatter
     print("Parsing markdown resume...")
     with open(md_path, 'r') as f:
-        md_text = f.read()
+        post = frontmatter.load(f)
 
-    data = parse_resume_markdown(md_text)
+    # Extract version date from frontmatter
+    resume_date = post.get('date')
+    if not resume_date:
+        print("Warning: Could not find date in frontmatter, using today's date")
+        resume_date = datetime.now().strftime('%Y-%m-%d')
+    elif hasattr(resume_date, 'strftime'):
+        # If it's a datetime object, convert to string
+        resume_date = resume_date.strftime('%Y-%m-%d')
+    else:
+        resume_date = str(resume_date)
+
+    version = f"v{resume_date.replace('-', '.')}"
+
+    # Parse the markdown content (without frontmatter)
+    data = parse_resume_markdown(post.content)
 
     # Generate typst
     print("Generating typst...")
-    typst_content = generate_typst(data, template_path)
+    typst_content = generate_typst(data, template_path, version)
 
     with open(typ_output, 'w') as f:
         f.write(typst_content)

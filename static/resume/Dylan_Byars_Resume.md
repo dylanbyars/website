@@ -7,11 +7,17 @@ date: 2025-11-03
 
 [website](https://dylanbyars.com) · [GitHub](https://github.com/dylanbyars) · [LinkedIn](https://www.linkedin.com/in/dylanbyars/) · [email](mailto:dylan@dylanbyars.com)
 
-> Full stack software engineer with expertise in agentic systems, data analytics, and wielding AI-assisted development tools with experience in finance, education, and healthcare.
+> Full stack software engineer with expertise in agentic systems, data analytics, and wielding AI-assisted development tools with experience in healthcare, finance, and education.
 
-## Work
+# Work
 
-**Senior Software Engineer** → Komodo Health (5/2025 - Present)
+## Senior Software Engineer @ Komodo Health
+
+_2/2022 - Present_
+
+### AI & Analytics Platform
+
+_5/2025 - Present_
 
 ```
 Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integration
@@ -27,9 +33,9 @@ Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integ
 - Evaluated and championed AI development tools (Claude Code, Cursor) for engineering teams and general LLM capabilities for non-technical staff as part of company AI council.
 - Currently prototyping customer success ticket analysis agent to aggregate user feedback for product roadmap prioritization and measure CS team response quality.
 
----
+### Data Infrastructure & Search
 
-**Senior Software Engineer** → Komodo Health (2/2022 - 5/2025)
+_2/2022 - 5/2025_
 
 ```
 Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript
@@ -39,9 +45,9 @@ Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript
 - Wrote comprehensive documentation and guides. These materials streamlined how developers interact with the search service, eliminating redundant search implementations.
 - Developed and maintained robust testing frameworks with locust and pytest. I integrated these with GitHub Actions for automated testing across multiple services, identifying performance bottlenecks and optimizing service delivery.
 
----
+## Senior Software Engineer @ Capital One
 
-**Senior Software Engineer** → Capital One (11/2019 - 12/2021)
+_11/2019 - 12/2021_
 
 ```
 React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git
@@ -51,9 +57,9 @@ React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh �
 - Implemented an encryption key rotation service with AWS Lambda and AWS Systems Manager.
 - Authored technical documentation and scripts to make daily work easier for all engineers on the team and improve the new developer onboarding experience.
 
----
+## Software Engineer @ Learning Objects
 
-**Software Engineer** → Learning Objects (08/2017 - 11/2019)
+_08/2017 - 11/2019_
 
 ```
 React · TypeScript · Angularjs · Scala · Redux · PostgreSQL · Bootstrap · selenide · git
@@ -63,9 +69,9 @@ React · TypeScript · Angularjs · Scala · Redux · PostgreSQL · Bootstrap ·
 - Incrementally migrated the client side application from Angularjs to React.
 - Wrote and maintained reliable automation tests allowing us to continuously deliver new features with confidence.
 
----
+## JavaScript Developer @ MicroHealth LLC
 
-**JavaScript Developer** → MicroHealth LLC (03/2017 - 08/2017)
+_03/2017 - 08/2017_
 
 ```
 JavaScript · HTML · CSS · JSP
@@ -74,49 +80,49 @@ JavaScript · HTML · CSS · JSP
 - Supported an application used by Department of Defense and Veterans Affairs officials to coordinate medical care for wounded soldiers.
 - Created engaging, interactive features and redesigned existing UIs to improve the overall user experience and increase user productivity.
 
----
+## Data Collection Engineer @ Leidos
 
-**Data Collection Engineer** → Leidos (10/2014 - 02/2015)
+_10/2014 - 02/2015_
 
 - Designed, constructed, and maintained web crawlers for a project called Digital Echo.
 - Pioneered new techniques to improve the reusability of the code our team used throughout the project.
 
----
+## Account Manager @ Carahsoft Technology
 
-**Account Manager** → Carahsoft Technology (07/2015 - 03/2017)
+_07/2015 - 03/2017_
 
 - Introduced technology companies offering innovative cybersecurity solutions to the federal market place, coordinated targeted marketing campaigns, and managed contract negotiations between customers and vendors.
 - Specialized in encryption technologies, database scanning and remediation tools, threat intelligence managers, and web application firewalls.
 
----
+## Substitute Teacher @ Fairfax County Public Schools
 
-**Substitute Teacher** → Fairfax County Public Schools (12/2013 - 06/2014)
+_12/2013 - 06/2014_
 
 - Taught science and math classes for absent teachers.
 - Developed rapport with students quickly to make lessons interesting.
 
----
+## Manager + Cook + Host @ Xenia's
 
-**Manager + Cook + Host** → Xenia's (01/2011 - 03/2012)
+_01/2011 - 03/2012_
 
 - Opened the restaurant and prepared food for daily service.
 - Helped organize employee schedules and generally maintain order around the restaurant.
 - Diced approximately 8 billion tomatoes.
 
----
+## Counselor + Medic @ Stone Mountain Adventures
 
-**Counselor + Medic** → Stone Mountain Adventures (06/2011 - 08/2011)
+_06/2011 - 08/2011_
 
 - Ran music workshops and sailing classes for campers.
 - Led sessions with fellow counselors to demonstrate basic first aid techniques increasing the staff’s ability to manage minor medical traumas and boosting confidence levels.
 
----
+## EMT @ Harrisonburg Rescue Squad
 
-**EMT** → Harrisonburg Rescue Squad (02/2010 - 03/2011)
+_02/2010 - 03/2011_
 
 - Rendered care to patients in distress as a crew member on the ambulance.
 - Delivered informative and concise reports on patient conditions and treatments extended when handing patients off to hospital staff.
 
-## Education
+# Education
 
-James Madison University → BA English
+English BA @ James Madison University

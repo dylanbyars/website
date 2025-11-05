@@ -237,7 +237,7 @@ def main():
     else:
         resume_date = str(resume_date)
 
-    version = f"v{resume_date.replace('-', '.')}"
+    version = resume_date
 
     # Parse the markdown content (without frontmatter)
     data = parse_resume_markdown(post.content)

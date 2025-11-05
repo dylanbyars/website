@@ -1,19 +1,31 @@
 # Requirements:
 # - pandoc
-# - node (via nvm)
+# - node (via mise)
 # - browser-sync (installed via node)
 
 # Run a local preview server
-dev:
+dev: all
 	@mise exec -- ./scripts/preview.sh
 
-# Build resume
+# Build resume HTML
 resume: ./static/resume/Dylan_Byars_Resume.md ./static/resume/resume_template.html
-	pandoc --standalone --template ./static/resume/resume_template.html -o ./static/public/resume/index.html ./static/resume/Dylan_Byars_Resume.md
+	@./scripts/build-resume-html.sh
+
+# Build resume PDF
+pdf: ./static/resume/Dylan_Byars_Resume.md ./static/resume/resume_template.typ.jinja
+	uv run scripts/build_resume.py
+
+# Build llms.txt from template and resume
+llms: ./static/resume/Dylan_Byars_Resume.md ./static/llms.txt.jinja
+	@uv run scripts/build_llms.py
 
 # Build periodic table project
 periodic-table:
-	@zsh -c 'cd ./static/projects/periodic-table/ && . ~/.zshrc && nvm use && npm install && npm run build'
+	@./scripts/build-periodic-table.sh
+
+# Deploy to Fastmail
+deploy: all
+	@./scripts/deploy.sh
 
 # Clean built files
 clean:
@@ -22,7 +34,9 @@ clean:
 
 all:
 	make resume
+	make pdf
+	make llms
 	make periodic-table
 
 # Phony targets (targets that don't create files of these names)
-.PHONY: all resume periodic-table clean dev
+.PHONY: all resume pdf llms periodic-table deploy clean dev

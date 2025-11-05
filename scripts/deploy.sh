@@ -16,15 +16,18 @@ if [ -z "$FASTMAIL_USERNAME" ] || [ -z "$FASTMAIL_APP_PASSWORD" ] || [ -z "$FAST
   exit 1
 fi
 
-# Construct rclone connection string dynamically
-# Format: :webdav,param=value,param=value:path
-RCLONE_REMOTE=":webdav,url=$FASTMAIL_WEBDAV_URL,vendor=other,user=$FASTMAIL_USERNAME,pass=$(rclone obscure "$FASTMAIL_APP_PASSWORD"):$FASTMAIL_WEBDAV_PATH"
+# Configure rclone via environment variables (works with on-the-fly :webdav: backend)
+export RCLONE_WEBDAV_URL="$FASTMAIL_WEBDAV_URL"
+export RCLONE_WEBDAV_VENDOR="other"
+export RCLONE_WEBDAV_USER="$FASTMAIL_USERNAME"
+export RCLONE_WEBDAV_PASS="$(rclone obscure "$FASTMAIL_APP_PASSWORD")"
 
 echo "Deploying to Fastmail: $FASTMAIL_WEBDAV_PATH"
 echo ""
 
 # Sync local public directory to Fastmail
-rclone sync static/public/ "$RCLONE_REMOTE" \
+# Use :webdav: backend configured via environment variables above
+rclone sync static/public/ ":webdav:$FASTMAIL_WEBDAV_PATH" \
   --progress \
   --exclude .DS_Store \
   --exclude '._*' \

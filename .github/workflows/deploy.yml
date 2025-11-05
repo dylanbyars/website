@@ -26,39 +26,21 @@ jobs:
       - name: Set up Python
         run: uv python install
 
-      - name: Install pandoc
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc
+          sudo apt-get install -y pandoc rclone
 
-      - name: Install typst
-        run: |
-          curl -fsSL https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz | tar -xJ
-          sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
-
-      - name: Set up rclone
-        uses: AnimMouse/setup-rclone@v1
-        with:
-          rclone_config: |
-            [fastmail]
-            type = webdav
-            url = ${{ secrets.FASTMAIL_WEBDAV_URL }}
-            vendor = other
-            user = ${{ secrets.FASTMAIL_USERNAME }}
-            pass = ${{ secrets.FASTMAIL_APP_PASSWORD }}
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v4
 
       - name: Build all assets
         run: make all
 
       - name: Deploy to Fastmail
-        run: |
-          rclone sync static/public/ "fastmail:${{ secrets.FASTMAIL_WEBDAV_PATH }}" \
-            --progress \
-            --exclude .DS_Store \
-            --exclude '._*' \
-            --exclude '.git*' \
-            --exclude 'Thumbs.db' \
-            --delete-excluded
-
-      - name: Deployment complete
-        run: echo "✓ Deployed to https://dylanbyars.com"
+        env:
+          FASTMAIL_USERNAME: ${{ secrets.FASTMAIL_USERNAME }}
+          FASTMAIL_APP_PASSWORD: ${{ secrets.FASTMAIL_APP_PASSWORD }}
+          FASTMAIL_WEBDAV_URL: ${{ secrets.FASTMAIL_WEBDAV_URL }}
+          FASTMAIL_WEBDAV_PATH: ${{ secrets.FASTMAIL_WEBDAV_PATH }}
+        run: ./scripts/deploy.sh

@@ -1,0 +1,147 @@
+// Dylan Byars Resume - Custom Typst Template
+// Generated from markdown via Python + Jinja2
+
+#set document(
+  title: "Dylan Byars · Resume",
+  author: "Dylan Byars",
+)
+
+#set page(
+  paper: "us-letter",
+  margin: (x: 0.6in, y: 0.6in),
+)
+
+#set text(
+  font: "Palatino",
+  size: 10pt,
+  fill: rgb("#1a1a1a"),
+)
+
+#set par(
+  justify: false,
+  leading: 0.65em,
+)
+
+// List spacing
+#set list(
+  spacing: 0.8em,
+)
+
+// Heading styles
+#show heading.where(level: 1): it => {
+  set text(size: 14pt, weight: "bold")
+  block(above: 1em, below: 0.7em)[
+    #it.body
+    #v(-0.4em)
+    #line(length: 100%, stroke: 1.5pt + rgb("#2b2b2b"))
+  ]
+}
+
+#show heading.where(level: 2): it => {
+  set text(size: 11pt, weight: "bold")
+  block(above: 0.9em, below: 0.7em)[#it.body]
+}
+
+// Helper function for tech stacks
+#let tech_stack(technologies) = {
+  block(
+    width: 100%,
+    fill: rgb("#1a1a1a"),
+    inset: 8pt,
+    radius: 3pt,
+    below: 0.7em,
+    above: 0.5em,
+  )[
+    #set text(size: 9pt, fill: rgb("#ffffff"))
+    #show "·": it => h(0.3em) + it + h(0.3em)
+    #technologies
+  ]
+}
+
+// Helper function for dates
+#let format_dates(date_str) = {
+  text(size: 9pt, style: "italic", fill: rgb("#666666"))[#date_str]
+}
+
+// ============ HEADER ============
+
+#grid(
+  columns: (1fr, auto),
+  align: (left, right),
+  [
+    #text(size: 22pt, weight: "bold")[{{ name }}]
+  ],
+  [
+    #text(size: 9pt)[
+      {%- for link in contact_links -%}
+      {%- if link.url.startswith('mailto:') -%}
+      {{ link.url.replace('mailto:', '').replace('@', '\\@') }}
+      {%- else -%}
+      #link("{{ link.url }}")[{{ link.text }}]
+      {%- endif -%}
+      {%- if not loop.last %} · {% endif -%}
+      {%- endfor -%}
+    ]
+  ]
+)
+
+#v(0.4em)
+
+#block(
+  width: 100%,
+  inset: (left: 0.8em, y: 0.4em),
+  stroke: (left: 2.5pt + rgb("#2b2b2b")),
+)[
+  #text(size: 10pt, style: "italic")[{{ summary }}]
+]
+
+// ============ WORK EXPERIENCE ============
+
+= Work
+
+{% for job in jobs %}
+== {{ job.title }} \@ {{ job.company }}{%- if job.dates %} · #format_dates[{{ job.dates }}]{% endif %}
+
+{%- if job.subsections %}
+{% for subsection in job.subsections %}
+#v(0.5em)
+#text(size: 10pt, weight: "semibold", style: "italic")[{{ subsection.title }}]{%- if subsection.dates %} · #format_dates[{{ subsection.dates }}]{% endif %}
+#v(0.3em)
+
+{%- for tech in subsection.tech_stacks %}
+#tech_stack[{{ tech }}]
+{% endfor %}
+
+{%- for bullet in subsection.bullets %}
+- {{ bullet }}
+{% endfor %}
+
+{%- if not loop.last %}
+#v(0.3em)
+{% endif %}
+{% endfor %}
+
+{%- else %}
+{# Job without subsections #}
+{%- for tech in job.tech_stacks %}
+#tech_stack[{{ tech }}]
+{% endfor %}
+
+{%- for bullet in job.bullets %}
+- {{ bullet }}
+{% endfor %}
+{% endif %}
+
+{%- if not loop.last %}
+#v(0.8em)
+{% endif %}
+
+{% endfor %}
+
+// ============ EDUCATION ============
+
+#v(0.5em)
+
+= Education
+
+{{ education }}

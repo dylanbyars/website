@@ -218,7 +218,6 @@ def main():
     md_path = repo_root / 'static' / 'resume' / 'Dylan_Byars_Resume.md'
     template_path = repo_root / 'static' / 'resume' / 'resume_template.typ.jinja'
     typ_output = repo_root / 'static' / 'resume' / 'resume_generated.typ'
-    pdf_output = repo_root / 'static' / 'public' / 'resume' / 'Dylan_Byars_Resume.pdf'
 
     # Parse markdown
     print("Parsing markdown resume...")
@@ -233,6 +232,10 @@ def main():
 
     with open(typ_output, 'w') as f:
         f.write(typst_content)
+
+    # Output path
+    public_dir = repo_root / 'static' / 'public'
+    pdf_output = public_dir / 'Dylan_Byars_Resume.pdf'
 
     # Compile to PDF
     print("Compiling to PDF...")

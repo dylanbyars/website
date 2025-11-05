@@ -1,21 +1,14 @@
 [tools]
 node = "22.14"
 python = "3.12"
-pandoc = "latest"
 typst = "latest"
 rclone = "latest"
 "ubi:astral-sh/uv" = "latest"
 
-[tasks.resume]
-description = "Build resume HTML"
-sources = ["./static/resume/Dylan_Byars_Resume.md", "./static/resume/resume_template.html"]
-outputs = ["./static/public/resume/index.html"]
-run = "./scripts/build-resume-html.sh"
-
 [tasks.pdf]
 description = "Build resume PDF"
 sources = ["./static/resume/Dylan_Byars_Resume.md", "./static/resume/resume_template.typ.jinja"]
-outputs = ["./static/public/resume/Dylan_Byars_Resume.pdf"]
+outputs = ["./static/public/Dylan_Byars_Resume.pdf"]
 run = "uv run scripts/build_resume.py"
 
 [tasks.llms]
@@ -32,7 +25,7 @@ run = "./scripts/build-periodic-table.sh"
 
 [tasks.all]
 description = "Build all assets"
-depends = ["resume", "pdf", "llms", "periodic-table"]
+depends = ["pdf", "llms", "periodic-table"]
 
 [tasks.dev]
 description = "Run local preview server"

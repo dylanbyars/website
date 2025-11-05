@@ -33,5 +33,5 @@ static/public/periodic-table/assets
 
 # Build artifacts
 static/public/llms.txt
-static/public/resume/*.pdf
+static/public/*.pdf
 static/resume/resume_generated.typ

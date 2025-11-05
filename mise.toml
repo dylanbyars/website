@@ -1,2 +1,49 @@
 [tools]
 node = "22.14"
+python = "3.12"
+pandoc = "latest"
+typst = "latest"
+rclone = "latest"
+"ubi:astral-sh/uv" = "latest"
+
+[tasks.resume]
+description = "Build resume HTML"
+sources = ["./static/resume/Dylan_Byars_Resume.md", "./static/resume/resume_template.html"]
+outputs = ["./static/public/resume/index.html"]
+run = "./scripts/build-resume-html.sh"
+
+[tasks.pdf]
+description = "Build resume PDF"
+sources = ["./static/resume/Dylan_Byars_Resume.md", "./static/resume/resume_template.typ.jinja"]
+outputs = ["./static/public/resume/Dylan_Byars_Resume.pdf"]
+run = "uv run scripts/build_resume.py"
+
+[tasks.llms]
+description = "Build llms.txt"
+sources = ["./static/resume/Dylan_Byars_Resume.md", "./static/llms.txt.jinja"]
+outputs = ["./static/public/llms.txt"]
+run = "uv run scripts/build_llms.py"
+
+[tasks."periodic-table"]
+description = "Build periodic table React app"
+sources = ["static/projects/periodic-table/src/**/*", "static/projects/periodic-table/package.json"]
+outputs = ["static/public/periodic-table/"]
+run = "./scripts/build-periodic-table.sh"
+
+[tasks.all]
+description = "Build all assets"
+depends = ["resume", "pdf", "llms", "periodic-table"]
+
+[tasks.dev]
+description = "Run local preview server"
+depends = ["all"]
+run = "./scripts/preview.sh"
+
+[tasks.deploy]
+description = "Deploy to Fastmail"
+depends = ["all"]
+run = "./scripts/deploy.sh"
+
+[tasks.clean]
+description = "Clean built files"
+run = "rm -rf static/public/periodic-table static/public/resume"

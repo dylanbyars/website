@@ -4,14 +4,27 @@ A simple personal website served via Fastmail file storage.
 
 ## Development
 
-A `Makefile` provides scripts to:
-- `make dev` - start a dev server for local development (auto-builds everything first)
-- `make resume` - build HTML version of markdown resume
-- `make pdf` - build PDF version of resume
-- `make llms` - build llms.txt from template
-- `make periodic-table` - build the periodic table React app
-- `make all` - build everything
-- `make deploy` - build everything and deploy to Fastmail (requires `.env` file)
+All tools and tasks are managed by [mise](https://mise.jdx.dev).
+
+**Setup:**
+
+```bash
+# Install all tools (node, python, pandoc, typst, rclone, uv)
+mise install
+```
+
+**Working with tasks:**
+
+```bash
+# See all available tasks
+mise tasks
+
+# Run a task
+mise run <task-name>
+
+# Auto-rebuild on changes
+mise watch all
+```
 
 ## Deployment
 
@@ -33,7 +46,7 @@ gh secret set -f .env --repo dylanbyars/website
 ### Manual (Local)
 
 1. Create a `.env` file with your Fastmail credentials (see `.env.example`)
-2. Run `make deploy`
+2. Run `mise run deploy`
 
 ## Philosophy
 

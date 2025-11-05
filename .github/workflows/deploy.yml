@@ -13,34 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Install mise
+        uses: jdx/mise-action@v2
         with:
-          node-version: '22'
+          install: true
+          cache: true
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-        with:
-          enable-cache: true
-
-      - name: Set up Python
-        run: uv python install
-
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc rclone
-
-      - name: Set up Typst
-        uses: typst-community/setup-typst@v4
-
-      - name: Build all assets
-        run: make all
-
-      - name: Deploy to Fastmail
+      - name: Build and deploy
         env:
           FASTMAIL_USERNAME: ${{ secrets.FASTMAIL_USERNAME }}
           FASTMAIL_APP_PASSWORD: ${{ secrets.FASTMAIL_APP_PASSWORD }}
           FASTMAIL_WEBDAV_URL: ${{ secrets.FASTMAIL_WEBDAV_URL }}
           FASTMAIL_WEBDAV_PATH: ${{ secrets.FASTMAIL_WEBDAV_PATH }}
-        run: ./scripts/deploy.sh
+        run: mise run deploy

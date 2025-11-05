@@ -3,36 +3,22 @@
 
 set -e
 
-# Detect if running in CI or locally
-if [ -z "$CI" ]; then
-  # Local mode: load from .env file
-  if [ ! -f .env ]; then
-    echo "Error: .env file not found"
-    exit 1
-  fi
-
+# Load environment variables from .env if it exists (local dev)
+# In CI, these are already in the environment
+if [ -f .env ]; then
   export $(grep -v '^#' .env | xargs)
-
-  # Use pre-configured rclone remote
-  RCLONE_REMOTE="fastmail:$FASTMAIL_WEBDAV_PATH"
-else
-  # CI mode: use environment variables directly
-  # Check required variables
-  if [ -z "$FASTMAIL_USERNAME" ] || [ -z "$FASTMAIL_APP_PASSWORD" ] || [ -z "$FASTMAIL_WEBDAV_URL" ] || [ -z "$FASTMAIL_WEBDAV_PATH" ]; then
-    echo "Error: Missing required environment variables"
-    echo "Required: FASTMAIL_USERNAME, FASTMAIL_APP_PASSWORD, FASTMAIL_WEBDAV_URL, FASTMAIL_WEBDAV_PATH"
-    exit 1
-  fi
-
-  # Configure rclone on-the-fly using connection string
-  RCLONE_REMOTE=":webdav,url=$FASTMAIL_WEBDAV_URL,vendor=other,user=$FASTMAIL_USERNAME,pass=$(rclone obscure "$FASTMAIL_APP_PASSWORD"):$FASTMAIL_WEBDAV_PATH"
 fi
 
-# Check required path variable
-if [ -z "$FASTMAIL_WEBDAV_PATH" ]; then
-  echo "Error: FASTMAIL_WEBDAV_PATH not set"
+# Check required variables
+if [ -z "$FASTMAIL_USERNAME" ] || [ -z "$FASTMAIL_APP_PASSWORD" ] || [ -z "$FASTMAIL_WEBDAV_URL" ] || [ -z "$FASTMAIL_WEBDAV_PATH" ]; then
+  echo "Error: Missing required environment variables"
+  echo "Required: FASTMAIL_USERNAME, FASTMAIL_APP_PASSWORD, FASTMAIL_WEBDAV_URL, FASTMAIL_WEBDAV_PATH"
   exit 1
 fi
+
+# Construct rclone connection string dynamically
+# Format: :webdav,param=value,param=value:path
+RCLONE_REMOTE=":webdav,url=$FASTMAIL_WEBDAV_URL,vendor=other,user=$FASTMAIL_USERNAME,pass=$(rclone obscure "$FASTMAIL_APP_PASSWORD"):$FASTMAIL_WEBDAV_PATH"
 
 echo "Deploying to Fastmail: $FASTMAIL_WEBDAV_PATH"
 echo ""

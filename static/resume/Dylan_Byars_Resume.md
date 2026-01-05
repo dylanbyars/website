@@ -25,7 +25,7 @@ Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integ
 
 - Single-handedly architected and deployed an AI agent enabling executive leadership and data teams to analyze data use across products and customers through natural language queries and interactive visualizations, with a hybrid tool system combining verified parameterized queries and open-ended SQL generation.
 - Led end-to-end development from user problem discovery through production deployment with JWT authentication, role-based Snowflake access control, and EC2 hosting.
-- Rapidly prototyped customer success ticket analysis agent to aggregate user feedback for product roadmap prioritization, demonstrating ability to quickly deliver AI solutions across different business domains.
+- Rapidly prototyped a customer success ticket analysis agent to aggregate user feedback for product roadmap prioritization, demonstrating the ability to quickly deliver AI solutions across different business domains.
 - Championed AI development tools (Claude Code, Cursor) for engineering teams as part of the company AI council.
 
 ### Product Engineering
@@ -38,7 +38,7 @@ React · Redux · React Query · TypeScript · GraphQL
 
 - Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with a Redux-based state architecture for nested query structures.
 - Introduced a preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement. Integrated MapLab with the centralized search service while maintaining feature development velocity.
-- Contributed to accessible component library based on Material UI, creating scoped form components with Storybook documentation used across the MapLab product family.
+- Contributed to an accessible component library based on Material UI, creating scoped form components with Storybook documentation used across the MapLab product family.
 - Architected a subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management. Built a bulk CSV import reducing provisioning time by 70%.
 - Automated the CI/CD release process enabling weekly release cadence.
 

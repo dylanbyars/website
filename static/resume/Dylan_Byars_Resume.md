@@ -1,6 +1,6 @@
 ---
 title: Dylan Byars · Resume
-date: 2025-11-12
+date: 2026-01-05
 ---
 
 # Dylan Byars

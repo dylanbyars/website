@@ -32,7 +32,7 @@ Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integ
 _2/2022 - 4/2025_
 
 ```
-React · Redux · TypeScript
+React · Redux · React Query · TypeScript · GraphQL
 ```
 
 - Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with a Redux-based state architecture for nested query structures.

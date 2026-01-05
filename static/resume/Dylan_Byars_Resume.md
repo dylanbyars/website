@@ -33,13 +33,16 @@ Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integ
 _2/2022 - 4/2025_
 
 ```
-React · Redux · React Query · TypeScript · GraphQL
+React · Redux · React Query · TypeScript · GraphQL · Temporal
 ```
 
 - Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with a Redux-based state architecture for nested query structures.
-- Introduced a preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement. Integrated MapLab with the centralized search service while maintaining feature development velocity.
+- Introduced a preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement.
+- Integrated MapLab with the centralized search service while maintaining feature development velocity.
 - Contributed to an accessible component library based on Material UI, creating scoped form components with Storybook documentation used across the MapLab product family.
-- Architected a subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management. Built a bulk CSV import reducing provisioning time by 70%.
+- Architected a subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management.
+- Orchestrated complex multi-service workflows with Temporal to provision user-defined configurations.
+- Built a bulk CSV import reducing provisioning time by 70%.
 - Automated the CI/CD release process enabling weekly release cadence.
 
 ### Data Infrastructure & Search
@@ -47,12 +50,13 @@ React · Redux · React Query · TypeScript · GraphQL
 _6/2023 - 3/2024_
 
 ```
-Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript
+Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript · New Relic
 ```
 
 - Contributed to centralized search service design using AWS Lambda, Kafka, OpenSearch, and Python, unifying data access across microservices.
 - Created developer guides that streamlined search service integration and eliminated redundant implementations.
 - Built testing frameworks with locust and pytest, integrating with GitHub Actions for automated performance testing.
+- Implemented New Relic monitoring for observability.
 
 ## Senior Software Engineer @ Capital One
 

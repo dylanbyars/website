@@ -23,15 +23,9 @@ _4/2025 - Present_
 Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integration
 ```
 
-- Architected and deployed an AI agent used by executive leadership and data teams to analyze data use across products and customers through natural language queries and interactive visualizations.
-- Designed hybrid agent tool system combining verified parameterized queries for safe predetermined analysis with open-ended SQL generation capabilities for exploratory data work, balancing security and reproducibility with analytical flexibility.
-- Single handedly led end-to-end development from user problem discovery and UX/UI design through production deployment, including query design against existing Snowflake schemas, agent framework integration (Strands SDK + AWS Bedrock Claude), and automated deployment infrastructure.
-- Implemented secure production deployment with JWT authentication, role-based Snowflake access control, EC2 hosting with automated updates, and conversation-scoped temporary table isolation for multi-user agent interactions.
-
-**Additional AI Initiatives**
-
-- Evaluated and championed AI development tools (Claude Code, Cursor) for engineering teams and general LLM capabilities for non-technical staff as part of company AI council.
-- Currently prototyping customer success ticket analysis agent to aggregate user feedback for product roadmap prioritization and measure CS team response quality.
+- Single-handedly architected and deployed AI agent enabling executive leadership and data teams to analyze data use across products and customers through natural language queries and interactive visualizations, with hybrid tool system combining verified parameterized queries and open-ended SQL generation.
+- Led end-to-end development from user problem discovery through production deployment with JWT authentication, role-based Snowflake access control, and EC2 hosting.
+- Championed AI development tools (Claude Code, Cursor) for engineering teams as part of company AI council.
 
 ### Product Engineering
 
@@ -41,23 +35,10 @@ _2/2022 - 4/2025_
 React · Redux · TypeScript
 ```
 
-**Prism Patient Cohort Query Builder** (2/2022 - 1/2023)
-
-- Built query definition interfaces for Prism, enabling life sciences customers to construct complex patient cohort queries across multiple healthcare data dimensions (conditions, demographics, medications, procedures) with nested logical operators (AND/OR groupings) against Komodo's Healthcare Map of 325M+ patients.
-- Designed Redux-based state architecture to maintain UI performance while managing deeply nested query structures, ensuring real-time synchronization between visual query builder and underlying data model.
-
-**MapLab Patient Cohort Query Builder** (1/2023 - 4/2025)
-
-- Introduced preview query widget in MapLab that surfaces directional cohort statistics without full query execution, allowing customers to iteratively refine complex queries and validate logic before committing to expensive data operations.
-- Integrated MapLab UI with centralized search service (6/2023 - 3/2024), migrating data access patterns to the new infrastructure while maintaining feature development velocity.
-- Collaborated with product and design teams throughout implementation cycles, identifying UX gaps and proposing solutions that influenced product direction and improved query builder usability.
-
-**Management Console & Subscription Platform** (4/2023 - 7/2025)
-
-- Architected subscription management system for enterprise healthcare data customers, including dynamic product configuration, account provisioning, and user access management with RBAC integration.
-- Built bulk CSV user import reducing provisioning time by 70% and eliminating manual data entry errors for multi-user account setup.
-- Implemented account cloning functionality handling complex subscription relationships and configurations across organizations.
-- Automated CI/CD release process reducing deployment overhead from 30 minutes to under 5 minutes, enabling weekly release cadence.
+- Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with Redux-based state architecture for nested query structures.
+- Introduced preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement. Integrated MapLab with centralized search service while maintaining feature development velocity.
+- Architected subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management. Built bulk CSV import reducing provisioning time by 70%.
+- Automated CI/CD release process enabling weekly release cadence.
 
 ### Data Infrastructure & Search
 
@@ -67,9 +48,9 @@ _6/2023 - 3/2024_
 Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript
 ```
 
-- Contributed to centralized search service design and implementation using AWS Lambda, Kafka, OpenSearch, and Python, unifying data access across microservices for improved application integrity and data uniformity.
-- Created comprehensive documentation and developer guides that streamlined search service integration and eliminated redundant implementations across teams.
-- Built robust testing frameworks with locust and pytest, integrating with GitHub Actions for automated testing that identified performance bottlenecks and optimized service delivery.
+- Contributed to centralized search service design using AWS Lambda, Kafka, OpenSearch, and Python, unifying data access across microservices.
+- Created developer guides that streamlined search service integration and eliminated redundant implementations.
+- Built testing frameworks with locust and pytest, integrating with GitHub Actions for automated performance testing.
 
 ## Senior Software Engineer @ Capital One
 

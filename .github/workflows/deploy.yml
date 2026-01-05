@@ -21,8 +21,8 @@ jobs:
 
       - name: Build and deploy
         env:
-          FASTMAIL_USERNAME: ${{ secrets.FASTMAIL_USERNAME }}
-          FASTMAIL_APP_PASSWORD: ${{ secrets.FASTMAIL_APP_PASSWORD }}
-          FASTMAIL_WEBDAV_URL: ${{ secrets.FASTMAIL_WEBDAV_URL }}
-          FASTMAIL_WEBDAV_PATH: ${{ secrets.FASTMAIL_WEBDAV_PATH }}
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+          WEBDAV_URL: ${{ secrets.WEBDAV_URL }}
+          WEBDAV_PATH: ${{ secrets.WEBDAV_PATH }}
         run: mise run deploy --force

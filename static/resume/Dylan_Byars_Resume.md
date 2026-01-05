@@ -62,7 +62,8 @@ _11/2019 - 12/2021_
 React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git
 ```
 
-- Tech Lead for a Social Security benefits data collection project using a custom form library. Drove cross-functional collaboration with product managers and domain experts to define requirements, create actionable tickets, migrate the form library from JavaScript to TypeScript, and deliver validated features.
+- Served as tech lead for a Social Security benefits data collection project using a custom form library.
+- Drove cross-functional collaboration with product managers and domain experts to define requirements, create actionable tickets, migrate the form library from JavaScript to TypeScript, and deliver validated features.
 - Built an encryption key rotation service with AWS Lambda and AWS Systems Manager.
 - Created technical documentation and automation scripts that improved daily engineering workflows and streamlined new developer onboarding.
 

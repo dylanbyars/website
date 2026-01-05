@@ -7,7 +7,7 @@ date: 2026-01-05
 
 [website](https://dylanbyars.com) · [GitHub](https://github.com/dylanbyars) · [LinkedIn](https://www.linkedin.com/in/dylanbyars/) · [email](mailto:dylan@dylanbyars.com)
 
-> Full stack software engineer working with agentic systems and wielding AI-assisted development tools with experience in healthcare, finance, and education.
+> Full stack software engineer working with agentic systems and wielding AI-assisted development tools across healthcare, finance, and education industries.
 
 # Work
 
@@ -23,9 +23,9 @@ _4/2025 - Present_
 Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integration
 ```
 
-- Single-handedly architected and deployed AI agent enabling executive leadership and data teams to analyze data use across products and customers through natural language queries and interactive visualizations, with hybrid tool system combining verified parameterized queries and open-ended SQL generation.
+- Single-handedly architected and deployed an AI agent enabling executive leadership and data teams to analyze data use across products and customers through natural language queries and interactive visualizations, with a hybrid tool system combining verified parameterized queries and open-ended SQL generation.
 - Led end-to-end development from user problem discovery through production deployment with JWT authentication, role-based Snowflake access control, and EC2 hosting.
-- Championed AI development tools (Claude Code, Cursor) for engineering teams as part of company AI council.
+- Championed AI development tools (Claude Code, Cursor) for engineering teams as part of the company AI council.
 
 ### Product Engineering
 
@@ -35,10 +35,10 @@ _2/2022 - 4/2025_
 React · Redux · TypeScript
 ```
 
-- Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with Redux-based state architecture for nested query structures.
-- Introduced preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement. Integrated MapLab with centralized search service while maintaining feature development velocity.
-- Architected subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management. Built bulk CSV import reducing provisioning time by 70%.
-- Automated CI/CD release process enabling weekly release cadence.
+- Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with a Redux-based state architecture for nested query structures.
+- Introduced a preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement. Integrated MapLab with the centralized search service while maintaining feature development velocity.
+- Architected a subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management. Built a bulk CSV import reducing provisioning time by 70%.
+- Automated the CI/CD release process enabling weekly release cadence.
 
 ### Data Infrastructure & Search
 
@@ -60,8 +60,8 @@ _11/2019 - 12/2021_
 React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git
 ```
 
-- Tech Lead for Social Security benefits data collection project using custom form library. Drove cross-functional collaboration with product managers and domain experts to define requirements, create actionable tickets, migrate form library from JavaScript to TypeScript, and deliver validated features.
-- Built encryption key rotation service with AWS Lambda and AWS Systems Manager.
+- Tech Lead for a Social Security benefits data collection project using a custom form library. Drove cross-functional collaboration with product managers and domain experts to define requirements, create actionable tickets, migrate the form library from JavaScript to TypeScript, and deliver validated features.
+- Built an encryption key rotation service with AWS Lambda and AWS Systems Manager.
 - Created technical documentation and automation scripts that improved daily engineering workflows and streamlined new developer onboarding.
 
 ## Software Engineer @ Learning Objects
@@ -72,9 +72,9 @@ _08/2017 - 11/2019_
 React · TypeScript · Angularjs · Scala · Redux · PostgreSQL · Bootstrap · selenide · git
 ```
 
-- Built web application for composing and delivering educational content with user-friendly version control system powered by custom graph-style database structure.
-- Led incremental migration of client-side application from AngularJS to React.
-- Maintained comprehensive automation test suite enabling continuous feature delivery with confidence.
+- Built a web application for composing and delivering educational content with a user-friendly version control system powered by a custom graph-style database structure.
+- Led incremental migration of the client-side application from AngularJS to React.
+- Maintained a comprehensive automation test suite enabling continuous feature delivery with confidence.
 
 ## JavaScript Developer @ MicroHealth LLC
 
@@ -84,14 +84,14 @@ _03/2017 - 08/2017_
 JavaScript · HTML · CSS · JSP
 ```
 
-- Maintained application used by Department of Defense and Veterans Affairs officials to coordinate medical care for wounded soldiers.
+- Maintained an application used by Department of Defense and Veterans Affairs officials to coordinate medical care for wounded soldiers.
 - Built interactive features and redesigned UIs to improve user experience and productivity.
 
 ## Data Collection Engineer @ Leidos
 
 _10/2014 - 02/2015_
 
-- Built and maintained web crawlers for Digital Echo project.
+- Built and maintained web crawlers for the Digital Echo project.
 - Pioneered reusable code patterns that improved team productivity throughout the project.
 
 ## Account Manager @ Carahsoft Technology
@@ -112,7 +112,7 @@ _12/2013 - 06/2014_
 
 _01/2011 - 03/2012_
 
-- Opened restaurant and prepared food for daily service.
+- Opened the restaurant and prepared food for daily service.
 - Organized employee schedules and maintained restaurant operations.
 - Diced approximately 8 billion tomatoes.
 
@@ -127,7 +127,7 @@ _06/2011 - 08/2011_
 
 _02/2010 - 03/2011_
 
-- Provided emergency medical care to patients as ambulance crew member.
+- Provided emergency medical care to patients as an ambulance crew member.
 - Delivered concise patient condition reports and treatment summaries during hospital handoffs.
 
 # Education

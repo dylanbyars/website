@@ -30,10 +30,10 @@ yarn-error.log*
 .env.production.local
 
 static/projects/periodic-table/node_modules
-static/public/periodic-table/assets
 .env
 
 # Build artifacts
 static/public/llms.txt
 static/public/*.pdf
 static/resume/resume_generated.typ
+static/public/periodic-table/

@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 1.875rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
 
   @media (min-width: 768px) {
     font-size: 3rem;
@@ -150,20 +150,53 @@ main.home {
     grid-area: projects;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    & > .projects-title {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--color-grey-darker);
+      margin: 0 0 0.25rem 0.6rem;
+    }
 
     & > a {
+      width: min(100%, 28rem);
+      box-sizing: border-box;
       text-decoration: none;
       color: var(--color-grey-lightest);
       transition: all 0.1s ease-in-out;
       border-radius: 0.25rem;
-      padding: 1rem;
+      padding: 0.55rem 0.6rem;
+
+      & > .prompt {
+        color: var(--color-green-light);
+        margin-right: 0.4rem;
+      }
+
+      & > .name {
+        color: var(--color-yellow-light);
+      }
+
+      & > .desc {
+        display: block;
+        color: var(--color-grey-dark);
+        font-size: 0.82rem;
+        margin-top: 0.2rem;
+        padding-left: 1.1rem;
+      }
     }
 
     & > a:hover {
       background-color: var(--color-yellow-lightest);
       color: var(--color-black);
+
+      & > .prompt,
+      & > .name,
+      & > .desc {
+        color: var(--color-black);
+      }
     }
   }
 
@@ -216,59 +249,3 @@ article {
   }
 }
 
-.periodic-table-grid-container {
-  height: 15vh;
-  width: 66%;
-  max-width: 20rem;
-  margin: 0 auto;
-  padding: 0.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 10fr 5fr 1fr;
-  grid-template-rows: 1fr 2fr 4fr 1fr 2fr;
-  grid-template-areas:
-    "alkali . . . nobles"
-    "alkali alkaline-earth . metalloids-ish nobles"
-    "alkali alkaline-earth metals metalloids-ish nobles"
-    ". . . . ."
-    ". . weirdos weirdos weirdos";
-
-  & > span {
-    display: block;
-
-    &.alkali {
-      grid-area: alkali;
-      background-color: var(--color-grey);
-      color: var(--color-grey);
-    }
-
-    &.alkaline-earth {
-      grid-area: alkaline-earth;
-      background-color: var(--color-red-light);
-      color: var(--color-red-light);
-    }
-
-    &.metals {
-      grid-area: metals;
-      background-color: var(--color-pink-light);
-      color: var(--color-pink-light);
-    }
-
-    &.metalloids-ish {
-      grid-area: metalloids-ish;
-      background-color: var(--color-orange-light);
-      color: var(--color-orange-light);
-    }
-
-    &.nobles {
-      grid-area: nobles;
-      background-color: var(--color-blue-light);
-      color: var(--color-blue-light);
-    }
-
-    &.weirdos {
-      grid-area: weirdos;
-      background-color: var(--color-green-light);
-      color: var(--color-green-light);
-    }
-  }
-}

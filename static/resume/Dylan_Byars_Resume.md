@@ -1,6 +1,6 @@
 ---
 title: Dylan Byars · Resume
-date: 2026-01-05
+date: 2026-06-28
 ---
 
 # Dylan Byars
@@ -9,15 +9,48 @@ date: 2026-01-05
 
 > Full stack software engineer working with agentic systems and wielding AI-assisted development tools across healthcare, finance, and education industries.
 
+# Awards
+
+## Hack for RVA Winner · Thriving Economy Prize · TradePath RVA
+
+_2026_
+
+- Built in a day for the Hack for RVA hackathon, TradePath RVA is a mobile-first website that helps Richmond residents explore skilled-trades paths, identify barriers to entry, and find funding for training-related costs.
+
 # Work
+
+## Senior Software Engineer @ OncoLens
+
+_2/2026 - Present_
+
+```
+TypeScript · React · .NET · Temporal · Datadog · Claude Code
+```
+
+### Collaborate
+
+- Own Collaborate as its sole engineer, designer, and product manager, reimagining it into a platform where cancer centers accept submissions — second-opinion requests, clinical-trial enrollment inquiries, and more — from anyone on the internet, replacing fax-and-phone intake with a secure in-product workflow that routes each request to a resolution like a returned opinion or a case opened in the Conference tumor board.
+- Design the submission flow around arbitrary form shapes, so onboarding a new customer or use case is a matter of configuration, not reworking the system.
+- Extend the platform's reach from internal care coordination out to the public, opening a new revenue opportunity while sparing cancer centers the manual work of fielding, routing, and responding to outside requests.
+
+### Conference
+
+- Modernize the Conference UI into a tighter, more intuitive experience as engineer and designer.
+- Build a case explorer for filtering and sorting the posted cases conferences are built around across all of their attributes, replacing an array of one-off interfaces with one consistent tool.
+
+### AI Enablement
+
+- Use agentic engineering to single-handedly ship large features end-to-end and automate internal processes.
+- Lead company-wide adoption of these practices, coaching engineers, PMs, QA, and executives through demos, workshops, presentations, and 1:1s.
+- Stretch beyond engineering with the same tooling, planning the sales campaign to upsell Collaborate into existing customers.
 
 ## Senior Software Engineer @ Komodo Health
 
-_2/2022 - Present_
+_2/2022 - 2/2026_
 
 ### AI & Analytics Platform
 
-_4/2025 - Present_
+_4/2025 - 2/2026_
 
 ```
 Python · Streamlit · AWS Bedrock · Snowflake · Agent frameworks · LLM integration
@@ -37,13 +70,9 @@ React · Redux · React Query · TypeScript · GraphQL · Temporal
 ```
 
 - Built query definition interfaces for Prism and MapLab cohort builders enabling life sciences customers to construct complex patient queries across healthcare data dimensions against Komodo's Healthcare Map of 325M+ patients with a Redux-based state architecture for nested query structures.
-- Introduced a preview query widget surfacing directional cohort statistics without full query execution, allowing iterative query refinement.
-- Integrated MapLab with the centralized search service while maintaining feature development velocity.
 - Contributed to an accessible component library based on Material UI, creating scoped form components with Storybook documentation used across the MapLab product family.
-- Architected a subscription management system for enterprise customers including product configuration, account provisioning, and RBAC-based user access management.
-- Orchestrated complex multi-service workflows with Temporal to provision user-defined configurations.
+- Architected a subscription management system for enterprise customers — product configuration, account provisioning, and RBAC-based access — orchestrating the multi-service provisioning workflows with Temporal.
 - Built a bulk CSV import reducing provisioning time by 70%.
-- Automated the CI/CD release process enabling weekly release cadence.
 
 ### Data Infrastructure & Search
 
@@ -54,88 +83,50 @@ Python · AWS · Lambda · OpenSearch · Kafka · React · TypeScript · New Rel
 ```
 
 - Contributed to centralized search service design using AWS Lambda, Kafka, OpenSearch, and Python, unifying data access across microservices.
-- Created developer guides that streamlined search service integration and eliminated redundant implementations.
-- Built testing frameworks with locust and pytest, integrating with GitHub Actions for automated performance testing.
-- Implemented New Relic monitoring for observability.
+- Built testing frameworks with locust and pytest wired into GitHub Actions for automated performance testing, with New Relic monitoring for observability.
 
 ## Senior Software Engineer @ Capital One
 
 _11/2019 - 12/2021_
 
 ```
-React · TypeScript · AWS · serverless · node · PostgreSQL · Redux · zsh · XState · git
+React · TypeScript · AWS · Serverless · Node.js · PostgreSQL · Redux · Zsh · XState · Git
 ```
 
 - Served as tech lead for a Social Security benefits data collection project using a custom form library.
 - Drove cross-functional collaboration with product managers and domain experts to define requirements, create actionable tickets, migrate the form library from JavaScript to TypeScript, and deliver validated features.
 - Built an encryption key rotation service with AWS Lambda and AWS Systems Manager.
-- Created technical documentation and automation scripts that improved daily engineering workflows and streamlined new developer onboarding.
 
 ## Software Engineer @ Learning Objects
 
-_08/2017 - 11/2019_
+_8/2017 - 11/2019_
 
 ```
-React · TypeScript · Angularjs · Scala · Redux · PostgreSQL · Bootstrap · selenide · git
+React · TypeScript · AngularJS · Scala · Redux · PostgreSQL · Bootstrap · Selenide · Git
 ```
 
 - Built a web application for composing and delivering educational content with a user-friendly version control system powered by a custom graph-style database structure.
 - Led incremental migration of the client-side application from AngularJS to React.
-- Maintained a comprehensive automation test suite enabling continuous feature delivery with confidence.
 
-## JavaScript Developer @ MicroHealth LLC
+## Earlier Healthcare & Service Experience
 
-_03/2017 - 08/2017_
+### JavaScript Developer @ MicroHealth LLC
 
-```
-JavaScript · HTML · CSS · JSP
-```
+_3/2017 - 8/2017_
 
-- Maintained an application used by Department of Defense and Veterans Affairs officials to coordinate medical care for wounded soldiers.
-- Built interactive features and redesigned UIs to improve user experience and productivity.
+- Maintained DoD/VA medical care coordination software and improved clinical workflow UIs.
 
-## Data Collection Engineer @ Leidos
+### EMT @ Harrisonburg Rescue Squad
 
-_10/2014 - 02/2015_
+_2/2010 - 3/2011_
 
-- Built and maintained web crawlers for the Digital Echo project.
-- Pioneered reusable code patterns that improved team productivity throughout the project.
+- Provided ambulance-based emergency care and delivered patient handoff reports to hospital staff.
 
-## Account Manager @ Carahsoft Technology
+### Counselor + Medic @ Stone Mountain Adventures
 
-_07/2015 - 03/2017_
+_6/2011 - 8/2011_
 
-- Connected cybersecurity technology companies with federal marketplace opportunities, coordinating marketing campaigns and managing contract negotiations between customers and vendors.
-- Focused on encryption technologies, database scanning and remediation tools, threat intelligence managers, and web application firewalls.
-
-## Substitute Teacher @ Fairfax County Public Schools
-
-_12/2013 - 06/2014_
-
-- Taught science and math classes for absent teachers.
-- Built quick rapport with students to make lessons engaging.
-
-## Manager + Cook + Host @ Xenia's
-
-_01/2011 - 03/2012_
-
-- Opened the restaurant and prepared food for daily service.
-- Organized employee schedules and maintained restaurant operations.
-- Diced approximately 8 billion tomatoes.
-
-## Counselor + Medic @ Stone Mountain Adventures
-
-_06/2011 - 08/2011_
-
-- Taught music workshops and sailing classes for campers.
-- Led first aid training sessions for counselors, improving staff capability to manage minor medical traumas and building confidence.
-
-## EMT @ Harrisonburg Rescue Squad
-
-_02/2010 - 03/2011_
-
-- Provided emergency medical care to patients as an ambulance crew member.
-- Delivered concise patient condition reports and treatment summaries during hospital handoffs.
+- Served as camp medic, led first aid training, and taught sailing and music workshops.
 
 # Education
 

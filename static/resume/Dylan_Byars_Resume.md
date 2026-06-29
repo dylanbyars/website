@@ -29,7 +29,7 @@ TypeScript · React · .NET · Temporal · Datadog · Claude Code
 
 ### Collaborate
 
-- Own Collaborate as its sole engineer, designer, and product manager, reimagining it into a platform where cancer centers accept submissions — second-opinion requests, clinical-trial enrollment inquiries, and more — from anyone on the internet, replacing fax-and-phone intake with a secure in-product workflow that routes each request to a resolution like a returned opinion or a case opened in the Conference tumor board.
+- Own Collaborate as its sole engineer and designer, reimagining it into a platform where cancer centers accept submissions — second-opinion requests, clinical-trial enrollment inquiries, and more — from anyone on the internet, replacing fax-and-phone intake with a secure in-product workflow that routes each request to a resolution like a returned opinion or a case opened in the Conference tumor board.
 - Design the submission flow around arbitrary form shapes, so onboarding a new customer or use case is a matter of configuration, not reworking the system.
 - Extend the platform's reach from internal care coordination out to the public, opening a new revenue opportunity while sparing cancer centers the manual work of fielding, routing, and responding to outside requests.
 

@@ -24,6 +24,7 @@ def parse_resume_markdown(md_text):
         'name': '',
         'contact_links': [],
         'summary': '',
+        'awards': [],
         'jobs': [],
         'education': ''
     }
@@ -53,6 +54,27 @@ def parse_resume_markdown(md_text):
                 summary_lines.append(lines[i].strip()[1:].strip())
                 i += 1
             data['summary'] = ' '.join(summary_lines)
+            continue
+
+        # Parse Awards section
+        if line in {'# Awards / Recognition', '# Awards'}:
+            i += 1
+            while i < len(lines):
+                line = lines[i].strip()
+
+                # Stop at next top-level section
+                if line == '# Work':
+                    break
+
+                # New award (## heading)
+                if line.startswith('## '):
+                    award = parse_award(lines, i)
+                    if award:
+                        data['awards'].append(award)
+                        i = award['end_index']
+                        continue
+
+                i += 1
             continue
 
         # Parse Work section
@@ -91,18 +113,65 @@ def parse_resume_markdown(md_text):
     return data
 
 
+def parse_award(lines, start_idx):
+    """Parse a single award entry."""
+    line = lines[start_idx].strip()
+
+    if not line.startswith('## '):
+        return None
+
+    award = {
+        'title': line[3:].strip(),
+        'dates': '',
+        'bullets': [],
+        'end_index': start_idx + 1
+    }
+
+    i = start_idx + 1
+
+    while i < len(lines):
+        line = lines[i].strip()
+
+        # Stop at next award or section
+        if line.startswith('## ') or line.startswith('# '):
+            award['end_index'] = i
+            break
+
+        # Dates in italic
+        if line.startswith('_') and line.endswith('_') and not award['dates']:
+            award['dates'] = line.strip('_').strip()
+            i += 1
+            continue
+
+        # Bullet point
+        if line.startswith('- '):
+            award['bullets'].append(line[2:].strip())
+            i += 1
+            continue
+
+        # Horizontal rule or blank line
+        if line.startswith('---') or line == '':
+            i += 1
+            continue
+
+        i += 1
+
+    award['end_index'] = i
+    return award
+
+
 def parse_job(lines, start_idx):
     """Parse a single job entry."""
     line = lines[start_idx].strip()
 
-    # Parse job title and company from "## Title @ Company"
-    match = re.match(r'## (.+?)\s+@\s+(.+)', line)
+    # Parse job title and optional company from "## Title @ Company" or "## Section"
+    match = re.match(r'## (.+?)(?:\s+@\s+(.+))?$', line)
     if not match:
         return None
 
     job = {
         'title': match.group(1).strip(),
-        'company': match.group(2).strip(),
+        'company': (match.group(2) or '').strip(),
         'dates': '',
         'subsections': [],
         'tech_stacks': [],
@@ -124,10 +193,10 @@ def parse_job(lines, start_idx):
         # Dates in italic
         if line.startswith('_') and line.endswith('_'):
             date_str = line.strip('_').strip()
-            if not job['dates']:  # Main job dates
-                job['dates'] = date_str
-            elif current_subsection:  # Subsection dates
+            if current_subsection:  # Subsection dates
                 current_subsection['dates'] = date_str
+            elif not job['dates']:  # Main job dates
+                job['dates'] = date_str
             i += 1
             continue
 
@@ -202,11 +271,41 @@ def escape_at_signs(text):
     return text.replace('@', r'\@')
 
 
+def format_inline_typst(text):
+    """Convert inline markdown syntax to Typst-friendly text."""
+    text = escape_at_signs(text)
+
+    def replace_link(match):
+        label = escape_at_signs(match.group(1))
+        url = match.group(2)
+        return f'#link("{url}")[{label}]'
+
+    return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', replace_link, text)
+
+
+def prepare_data_for_typst(data):
+    """Normalize parsed resume data before rendering the Typst template."""
+    if data.get('summary'):
+        data['summary'] = format_inline_typst(data['summary'])
+
+    if data.get('education'):
+        data['education'] = format_inline_typst(data['education'])
+
+    for award in data.get('awards', []):
+        award['title'] = format_inline_typst(award['title'])
+        award['bullets'] = [format_inline_typst(bullet) for bullet in award['bullets']]
+
+    for job in data.get('jobs', []):
+        job['bullets'] = [format_inline_typst(bullet) for bullet in job['bullets']]
+        for subsection in job.get('subsections', []):
+            subsection['bullets'] = [format_inline_typst(bullet) for bullet in subsection['bullets']]
+
+    return data
+
+
 def generate_typst(data, template_path, version):
     """Generate typst content from parsed data using Jinja2 template."""
-    # Escape @ signs in education
-    if data.get('education'):
-        data['education'] = escape_at_signs(data['education'])
+    data = prepare_data_for_typst(data)
 
     with open(template_path, 'r') as f:
         template = Template(f.read())

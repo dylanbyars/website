@@ -104,9 +104,27 @@
 = Work
 
 {% for job in jobs %}
-== {{ job.title }} \@ {{ job.company }}{%- if job.dates %} · #format_dates[{{ job.dates }}]{% endif %}
+== {{ job.title }}{%- if job.company %} \@ {{ job.company }}{% endif %}{%- if job.dates %} · #format_dates[{{ job.dates }}]{% endif %}
 
 {%- if job.subsections %}
+{% if not job.company %}
+{# Compact grouped section for earlier role summaries #}
+{% for subsection in job.subsections %}
+#v(0.25em)
+#text(size: 10pt, weight: "semibold", style: "italic")[{{ subsection.title }}]{%- if subsection.dates %} · #format_dates[{{ subsection.dates }}]{% endif %}
+
+{%- for bullet in subsection.bullets %}
+- {{ bullet }}
+{% endfor %}
+
+{%- if not loop.last %}
+#v(0.1em)
+{% endif %}
+{% endfor %}
+{% else %}
+{%- for tech in job.tech_stacks %}
+#tech_stack[{{ tech }}]
+{% endfor %}
 {% for subsection in job.subsections %}
 #v(0.5em)
 #text(size: 10pt, weight: "semibold", style: "italic")[{{ subsection.title }}]{%- if subsection.dates %} · #format_dates[{{ subsection.dates }}]{% endif %}
@@ -124,6 +142,7 @@
 #v(0.3em)
 {% endif %}
 {% endfor %}
+{% endif %}
 
 {%- else %}
 {# Job without subsections #}
@@ -141,6 +160,27 @@
 {% endif %}
 
 {% endfor %}
+
+// ============ AWARDS ============
+
+{% if awards %}
+#v(0.5em)
+
+= Awards
+
+{% for award in awards %}
+#text(size: 10pt, weight: "semibold", style: "italic")[{{ award.title }}]{%- if award.dates %} · #format_dates[{{ award.dates }}]{% endif %}
+#v(0.3em)
+
+{%- for bullet in award.bullets %}
+- {{ bullet }}
+{% endfor %}
+
+{%- if not loop.last %}
+#v(0.3em)
+{% endif %}
+{% endfor %}
+{% endif %}
 
 // ============ EDUCATION ============
 
